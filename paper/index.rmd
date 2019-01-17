@@ -1,0 +1,11 @@
+---
+title: 'Working Title (Draft)'
+author: "Mark Newman"
+date: "`r Sys.Date()`"
+knit: "bookdown::render_book"
+bibliography: ["../litreview/references.bib", "../analysis/packages.bib"]
+link-citations: yes
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/ieee-with-url.csl
+url: 'https\://github.com/markanewman/DataScienceRecipes'
+github-repo: markanewman/DataScienceRecipes
+---

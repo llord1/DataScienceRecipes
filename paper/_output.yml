@@ -1,0 +1,5 @@
+bookdown::pdf_book:
+    toc: no
+    includes:
+        in_header: preamble.tex
+    fig_height: 3

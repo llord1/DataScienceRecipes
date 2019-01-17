@@ -1,0 +1,20 @@
+# Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vs/
+*.[Cc]ache
+
+# RStudio
+.Rhistory
+.RData
+
+# Knit files
+*.html
+*.doc
+*.docx
+*.pdf
+
+# WinMerge
+*.bak
