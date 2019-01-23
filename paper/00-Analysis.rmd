@@ -7,14 +7,14 @@ editor_options:
 library(knitr)
 
 meta <- new.env()
-file <- knit('../analysis/02-MetalinguisticAnalysis.rmd', envir = meta)
+file <- knit('../analysis/01-MetalinguisticAnalysis.rmd', envir = meta)
 file.remove(file)
 
 profile <- new.env()
-file <- knit('../analysis/03-ProfileAnalysis.rmd', envir = profile)
+file <- knit('../analysis/02-ProfileAnalysis.rmd', envir = profile)
 file.remove(file)
 
 rdd <- new.env()
-file <- knit('../analysis/04-RegressionDiscontinuityDesign.rmd', envir = rdd)
+file <- knit('../analysis/03-RegressionDiscontinuityDesign.rmd', envir = rdd)
 file.remove(file)
 ```
