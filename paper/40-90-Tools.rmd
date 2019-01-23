@@ -1,0 +1,7 @@
+## Tools
+
+Data was analyzed using R/RStudio Version `r version$major`.`r version$minor` [@rlanguage; @rstudio] in conjunction with several CRAN packages [`r librarycite`].
+Devtools [@rpackagedevtools] was used to load a variety of personal macros.
+GitHub [@github] was selected as a long-term storage location for raw data as well as source control.
+
+In an effort to reduce publication bias [@nakagawa2004farewell; @reinhart2015statistics], all of the analysis preformed are discussed in Section \@ref(results) without regard to their significance.

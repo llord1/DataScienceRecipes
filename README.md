@@ -43,6 +43,7 @@ Some of that information is unique to me, so you probaly want to put your name o
   Making checklists seems super helpful.
 * Choose an appropriate type of analysis for your work from the `./analysis/` folder.
   Delete the rest.
+  Delete the corsponding `./paper/40-{analysis}.rmd` files.
   Delete the corsponding `./paper/50-{analysis}.rmd` files.
   If you want to do more than one type of analysis, just delete the ones you _don't_ want.
   Remember:
