@@ -7,12 +7,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r, echo=FALSE, results='hide', error=F, warning=F, message=F}
+```{r, echo = F, results = 'hide', error = F, warning = F, message = F}
 rm(list = ls())
 options(scipen = 999)
 
-library(dplyr)
-library(ggpubr)
+libraries <- c('dplyr', 'ggpubr')
+lapply(libraries, library, character.only = TRUE)
 ```
 
 # Profile Analysis
