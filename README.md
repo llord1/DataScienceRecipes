@@ -63,6 +63,8 @@ Some of that information is unique to me, so you probaly want to put your name o
 * In `./paper/_bookdown.yml`:
   * Update the `repo` tag to your your repo's name.
     Remove the tag if you don't use [GitHub][github].
+* In `./litreview/.gitignore`:
+  * Uncomment line 2.
 
 # Hints and advice
 
@@ -77,6 +79,12 @@ Some of that information is unique to me, so you probaly want to put your name o
 4. Add in all your lititure review PDFs into the `./litreview` folder to share everything among your group.
    When you fine a new prior work, imideatly save the citation in `./litreview/references.bib`.
    `bookdown` automaticaly prunes unused refrences, and writing the correct citation right before publication is _always_ a hasle.
+5. If you flip your repo from private to public, remove all the PDFs and [purge](https://help.github.com/articles/removing-sensitive-data-from-a-repository/) first.
+   Different articles have different licenses.
+   While you might have the right to the full-text of a work, someone else may not.
+   Best to keep just the `references.bib`.
+6. All of the `./code` here is a striped down version of what I used in my [dissertation](https://github.com/markanewman/AlgorithmicallyAssistedWriting).
+   Looking there might help inspire you to do something special.
 
 ## Thanks
 

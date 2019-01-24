@@ -5,6 +5,7 @@
 *.sln.docstates
 .vs/
 *.[Cc]ache
+__pycache__
 
 # RStudio
 .Rhistory

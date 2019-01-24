@@ -1,5 +1,7 @@
 ## Metalinguistic Analysis
 
+### Procedure
+
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 At vero eos et accusam et justo duo dolores et ea rebum.
 Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -10,11 +12,25 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 At vero eos et accusam et justo duo dolores et ea rebum.
 Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+After the corpus was collected and converted to plain text, it was tokenized using the NLTK's ^[http://www.nltk.org] implementation of the Punkt sentence tokenizer [@kiss2006unsupervised] followed by the Penn Treebank word tokenizer [@marcus1993building].
+Punkt was chosen as it has proven viable in several other works [@hiippala2016semi;@avramidis2011evaluate;@yao2014information;@nothman2013learning;@marrese2014novel].
+Laboreiro et al. notes that while the Penn Treebank may have some issues, it is still the de-facto standard [@laboreiro2010tokenizing].
 
-Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+### Linguistic variables analyzed
+
+This paper investigated several dependent variables.
+Overall document cadence was captured using mean words per sentence, mean sentances per paragraph, and mean paragraphs per document.
+Lexical diversity was captured using the both a normal type-token ratio as well as a moving average type-token ratio (MATTR) with a window size of 500.
+
+#### Basic
+
+What collection of characters are recognised as distinct from one another may differ depending on the research at hand.
+In order to maxmize reproduceability, this paper adopts the defnitions of words and sentences presented by tokenizers listed above [@kiss2006unsupervised;@marrese2014novel].
+Two neiboring sentences are said to come from distinct paragraphs if they are seperated by at least one blank line.
+
+#### Type-token ratio
+
+A type-token ratio is simple to compute measure of word diversity inside of a single document [@hill2015real].
+However, it suffers from the need to standardise on document length [@covington2008moving;@kettunen2014can;@jarvis2002short;@richards1987type].
+A moving average type-token ratio helps address these issues [@covington2008moving;@kettunen2014can;].
+The normal type-token ratio is also captured to faciliate comparesons between works that do not use MATTR.

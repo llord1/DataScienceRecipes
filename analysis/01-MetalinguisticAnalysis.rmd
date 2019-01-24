@@ -36,7 +36,7 @@ R is not super great at analysing large corpuses so this process is run in Pure 
 In a shell window, change to the `./code` folder and run the below commands.
 Some pathing or name correction may be necessary.
 
-* python -c "from . import tokenize_corpus; tokenize_corpus('../data/corpus.tar')"
+* python -c "import tokenize_corpus; tokenize_corpus.tokenize_corpus('../data/corpus.tar')"
 
 ## Question
 
