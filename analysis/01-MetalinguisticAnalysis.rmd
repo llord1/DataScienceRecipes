@@ -21,22 +21,22 @@ Then a MANOVA is preformed comparing the segments.
 
 In order to perform a Metalinguistic Analysis, documents must first be obtained.
 This can be done by any means.
-Following data collection, the data needs to be put into the expected format.
-For this recipe, 2 files are expected:
+Following data collection, the documents need to be processed and the features extracted.
+R is _OK_ enough at this task, but as the document count increases, R _really_ slows down.
+Because of this, the feature extraction step is preformed in Pure Python.
+The walkthrough of this can be found in `../code/01-MetalinguisticAnalysisPipeline.md`
 
-* A `_metadata.csv` file containing metadata data about the individual documents.
-  This will need to include at least 2 columns: (1) the document's name, and (2) the segment.
-* A `corpus.tar` file containing the documents.
-  A single TAR file is useful in this context because as the number of documents in the corpus expands, a simple directory containing all of them becomes unwieldy.
-  The documents in `corpus.tar` should be plain text without markup or other forms of notation. 
+# Data format
+ 
+For this recipe, 3 files are expected:
 
-## Collect Features
+* A `metadata.csv` file containing metadata data about the individual documents.
+  This file will need to include at least 2 columns: (1) the document's id, and (2) the segment.
+* A `cadence.csv` file containing frequency count measures.
+  This file will contain 4 columns
+* A `diversity.csv` file containing metadata data about the individual documents.
 
-R is not super great at analysing large corpuses so this process is run in Pure Python.
-In a shell window, change to the `./code` folder and run the below commands.
-Some pathing or name correction may be necessary.
 
-* python -c "import tokenize_corpus; tokenize_corpus.tokenize_corpus('../data/corpus.tar')"
 
 ## Question
 
