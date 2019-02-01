@@ -17,12 +17,13 @@ Unzip the folder.
 You will also need to have the following installed on your computer:
 
 1. [RStudio][rstudio]
-2. A LaTeX Distribution like [TeXLive](https://www.tug.org/texlive) or [MikTeX](https://miktex.org)
-3. Fonts used in the template
+2. [Python][python]
+3. A LaTeX Distribution like [TeXLive](https://www.tug.org/texlive) or [MikTeX](https://miktex.org)
+4. Fonts used in the template
    [1](https://github.com/georgd/EB-Garamond),
    [2](https://github.com/adobe-fonts/source-code-pro),
    [3](http://www.latofonts.com/lato-free-fonts)
-4. A few R packages
+5. A few R packages
    [1](https://CRAN.R-project.org/package=bookdown),
    [2](https://CRAN.R-project.org/package=devtools),
    [3](https://CRAN.R-project.org/package=dplyr),
@@ -36,7 +37,7 @@ You will also need to have the following installed on your computer:
 In order to make this repo function as a big red eazy button, I had to fill out a lot of information.
 Some of that information is unique to me, so you probaly want to put your name on it instead.
 
-* Change your `./LICENSE` file to the [MIT license](https://choosealicense.com/licenses/mit/).
+* Change your `./LICENSE` file to the [MIT license](https://choosealicense.com/licenses/mit).
   I use [CC0](https://choosealicense.com/licenses/cc0) here because this work is ment to be cook book level super generic.
   Your work probaly has something that makes it special.
 * Remove this `./README.md` and put in your timeline and tasks as `- [ ] {{task name}}`.
@@ -50,7 +51,7 @@ Some of that information is unique to me, so you probaly want to put your name o
   * Theory drives hypothesis
   * Hypothesis drives data collection
   * Data collection drives analysis
-* For each `.rmd` file in the `./analysis/` folder:
+* For each `.rmd` file in the `./analysis` folder:
   * Remove my name.
     Put in your own name(s).
 * In `./paper/index.rmd`:
@@ -60,6 +61,12 @@ Some of that information is unique to me, so you probaly want to put your name o
   * Select the correct `csl` for your journal.
   * Update the `url` and `github-repo` tags to your your repo's name.
     Remove the tags if you don't use [GitHub][github].
+* In the other `./paper/*.rmd` files:
+  * Replace the [Latin copy text][ipsum].
+  * Reword or remove the non-[Latin copy text][ipsum].
+    In general, I like to cite the algorithms used because I find it helpful for new readers.
+	Because of this, I chose citations that are generic and may be only tangentaly related to your efforts.
+	Your group may not be overly concerned about this or want to find more on-point refrences.
 * In `./paper/_bookdown.yml`:
   * Update the `repo` tag to your your repo's name.
     Remove the tag if you don't use [GitHub][github].
@@ -114,3 +121,5 @@ This list is likely incomplete, but attempts to credit those that came before.
 
 [github]: https://github.com
 [rstudio]: https://www.rstudio.com
+[python]: https://www.python.org
+[ipsum]: https://en.wikipedia.org/wiki/Lorem_ipsum
