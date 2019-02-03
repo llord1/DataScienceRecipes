@@ -13,6 +13,10 @@ def tokenize_corpus(corpus):
     ----------
     corpus : str
         The tarball containing text only files
+
+    Example
+    ----------
+    import tokenize_corpus; tokenize_corpus.tokenize_corpus('../data/corpus.tar')
     """
     corpus = Path(corpus)
 
