@@ -16,7 +16,7 @@ def list_tar_files(tar_ball):
         tar_info = tar_ball.next()
     pass
 
-def read_lines_from_tar(tar_file):
+def read_lines_from_tar_file(tar_file):
     """
     Read the tar file returning the lines
     """

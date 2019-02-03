@@ -40,7 +40,9 @@ If you get the documents with different formats, they need to be normalized befo
 So you may need to modify `tokenize_corpus()` to suit your purpose.
 
 ```{shell}
-python -c "import tokenize_corpus; tokenize_corpus.tokenize_corpus('../data/corpus.tar.gz')"
+python -c "import tokenize_corpus; tokenize_corpus.tokenize_corpus('../data/corpus.tar')"
+python -c "import measure_cadence; measure_cadence.measure_cadence('../data/tokenized.tar')"
+python -c "import measure_ttr; measure_ttr.measure_ttr('../data/tokenized.tar')"
 ```
 
 [gutenberg]: https://www.gutenberg.org

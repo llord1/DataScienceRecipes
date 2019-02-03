@@ -1,6 +1,6 @@
 import progressbar
 import tarfile
-from utils import list_tar_files, read_lines_from_tar, write_lines_to_tarball
+from utils import list_tar_files, read_lines_from_tar_file, write_lines_to_tarball
 from nltk.tokenize import word_tokenize, sent_tokenize
 from os.path import getsize
 from pathlib import Path
@@ -30,7 +30,7 @@ def tokenize_corpus(corpus):
         with tarfile.open(corpus, 'r') as corpus:        
             with tarfile.open(tokenized_tarball, 'w') as tokenized_tarball:
                 for (tar_info, tar_file) in list_tar_files(corpus):
-                    lines = read_lines_from_tar(tar_file)
+                    lines = read_lines_from_tar_file(tar_file)
                     lines = undo_word_wrap(lines)
                     lines = tokenize_lines(lines)
                     write_lines_to_tarball(tokenized_tarball, tar_info, lines)
