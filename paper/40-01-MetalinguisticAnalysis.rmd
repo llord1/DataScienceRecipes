@@ -20,7 +20,7 @@ Laboreiro et al. notes that while the Penn Treebank may have some issues, it is 
 
 This paper investigated several dependent variables.
 Overall document cadence was captured using mean words per sentence, mean sentances per paragraph, and mean paragraphs per document.
-Lexical diversity was captured using the both a normal type-token ratio as well as a moving average type-token ratio (MATTR) with a window size of 500.
+Lexical diversity was captured using the both a normal type-token ratio as well as a moving average type-token ratio (MATTR) with a window size of 500 and 1000.
 
 #### Basic
 
