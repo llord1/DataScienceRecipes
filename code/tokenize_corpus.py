@@ -80,5 +80,3 @@ def tokenize_lines(lines):
             pass
         pass
     pass
-
-tokenize_corpus('../data/corpus.tar')
