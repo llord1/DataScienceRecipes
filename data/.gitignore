@@ -1,5 +1,5 @@
 # Don't allow any new files.
-# The `_metadata.csv` + `corpus.tar.gz` are fine because we need a starting point, but everything else can be generated off of those two
+# The `_metadata.csv` + `corpus.tar` are fine because we need a starting point, but everything else can be generated off of those two
 $ Don't run into https://help.github.com/articles/conditions-for-large-files/
 *.gz
 *.tar
