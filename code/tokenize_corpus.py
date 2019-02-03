@@ -1,10 +1,9 @@
-import pathlib
 import progressbar
 import tarfile
-from utils import list_tar_files
-from io import BytesIO
+from utils import list_tar_files, read_lines_from_tar, write_lines_to_tarball
 from nltk.tokenize import word_tokenize, sent_tokenize
 from os.path import getsize
+from pathlib import Path
 
 def tokenize_corpus(corpus):
     """
@@ -15,7 +14,7 @@ def tokenize_corpus(corpus):
     corpus : str
         The tarball containing text only files
     """
-    corpus = pathlib.Path(corpus)
+    corpus = Path(corpus)
 
     tokenized_tarball = corpus.parent.joinpath('./tokenized.tar')
     if tokenized_tarball.exists():
@@ -28,6 +27,7 @@ def tokenize_corpus(corpus):
             with tarfile.open(tokenized_tarball, 'w') as tokenized_tarball:
                 for (tar_info, tar_file) in list_tar_files(corpus):
                     lines = read_lines_from_tar(tar_file)
+                    lines = undo_word_wrap(lines)
                     lines = tokenize_lines(lines)
                     write_lines_to_tarball(tokenized_tarball, tar_info, lines)
                     bar.update(tar_info.offset_data + tar_info.size)
@@ -36,18 +36,35 @@ def tokenize_corpus(corpus):
         pass
     pass
 
-def read_lines_from_tar(tar_file):
+def undo_word_wrap(lines):
     """
-    Read the tar file returning the lines
+    Undo manual word wrap
     """
 
-    txt = tar_file.read()
-    txt = txt.decode('utf-8')
-    return txt.splitlines()
+    last = None
+    for line in lines:
+        line = line.strip()
+        if line == '':
+            yield last
+            yield ''
+            last = None
+        elif last == None:
+            pass
+            last = line
+        else:
+            pass
+            last = last + ' ' + line
+        pass
+
+    if last != None:
+        pass
+        yield last
+
+    pass
 
 def tokenize_lines(lines):
     """
-    Tokenizes all the lines using the standard Punkt tokenizer
+    Tokenizes all the lines using the standard Punkt + PENN TreeBank tokenizer
     """
 
     for line in lines:
@@ -64,15 +81,4 @@ def tokenize_lines(lines):
         pass
     pass
 
-def write_lines_to_tarball(tokenized_tarball, tar_info, lines):
-    """
-    Writes the relevant lines to the tar ball
-    """
-
-    txt = '\n'.join(lines)
-    txt = txt.encode('utf-8')
-    with BytesIO(txt) as tar_file:
-        info = tarfile.TarInfo(name = tar_info.name)
-        info.size = len(txt)
-        tokenized_tarball.addfile(info, fileobj = tar_file)
-    pass
+tokenize_corpus('../data/corpus.tar')
