@@ -11,11 +11,11 @@ editor_options:
 rm(list = ls())
 options(scipen = 999)
 
-libraries <- c('dplyr', 'ggpubr')
+libraries <- c('dplyr', 'ggpubr', 'psych', 'nortest', 'mvnormtest')
 lapply(libraries, library, character.only = TRUE)
 ```
 
-A Metalinguistic Analysis compares the lingustic features of a corpus accross some metadata segment.
+A Metalinguistic Analysis compares the linguistic features of a corpus across some metadata segment.
 The features are extracted on a document by document basis.
 Then a MANOVA is preformed comparing the segments.
 
@@ -24,22 +24,166 @@ This can be done by any means.
 Following data collection, the documents need to be processed and the features extracted.
 R is _OK_ enough at this task, but as the document count increases, R _really_ slows down.
 Because of this, the feature extraction step is preformed in Pure Python.
-The walkthrough of this can be found in `../code/01-MetalinguisticAnalysisPipeline.md`
+The walk-through of this can be found in `../code/01-MetalinguisticAnalysisPipeline.md`
 
 # Data format
  
 For this recipe, 3 files are expected:
 
 * A `metadata.csv` file containing metadata data about the individual documents.
-  This file will need to include at least 2 columns: (1) the document's id, and (2) the segment.
+  This file needs to include at _least_ 2 columns:
+  1. **id**: the document's id
+  2. the segment
 * A `cadence.csv` file containing frequency count measures.
-  This file will contain 4 columns
-* A `diversity.csv` file containing metadata data about the individual documents.
-
-
-
-## Question
+  This file will contain 4 columns:
+  1. **id**: the document's id
+  2. **Words**: Total words in the document
+  3. **Sentences**: Total sentences in the document
+  4. **Paragraphs**: Total paragraphs in the document
+* A `diversity.csv` file containing diversity measures.
+  This file will contain 7 columns:
+  1. **id**: the document's id
+  2. **TTR**: the type-token ratio (TTR)
+  3. **MATTR500**: the moving average type-token ratio (MATTR)
+     * Window length 500
+  4. **MATTR1k**: the moving average type-token ratio
+     * Window length 1000
+  5. **ATTR**: the type-token ratio
+     * Adjusted to excluse non-word tokens
+  6. **AMATTR500**: the moving average type-token ratio
+     * Window length 500
+     * Adjusted to excluse non-word tokens
+  7. **AMATTR1k**: the moving average type-token ratio
+     * Window length 1000
+     * Adjusted to excluse non-word tokens
 
 ```{r, results = 'hold'}
-analysis = 'Metalinguistic'
+metadata = read.csv('../data/metadata.csv')
+cadence = read.csv('../data/cadence.csv')
+diversity = read.csv('../data/diversity.csv')
 ```
+
+# Check Assumptions.
+
+Normally, MANOVA is known to be robust.
+What this _actualy_ means is to works well if the assumptions are violated, but only under certain circumstances.
+The circumstance being a balanced design.
+Unfortunately, a metalinguistic analysis is almost never balanced.
+
+The assumptions we need to test are as follows:
+
+* Independent Observations
+* Normality
+* Equal variance-covariance matrix
+
+## Independent Observations
+
+Independent Observations here is not that we included 2 documents twice, but that the measure is measuring the same thing.
+
+```{r, results = 'hold'}
+icc_cadence = ICC(cadence[, !names(cadence) %in% c('id')])
+```
+
+Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_cadence$results$p[1], 3)`) low corrliation (ICC = `r round(icc_cadence$results$ICC[1], 3)`).
+The omnibus test fails to reject the null hypothesis and so we conclude that there is not sufficant evedance to support the different measures being dependent.
+_If_ the measures _were_ dependent we loose the rational for running a MANOVA.
+A simple ANOVA on the strongest measure (usualy words) would be the next step
+
+```{r, results = 'hold'}
+icc_diversity = ICC(diversity[, !names(cadence) %in% c('id')])
+```
+
+Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_diversity$results$p[1], 3)`) low corrliation (ICC = `r round(icc_diversity$results$ICC[1], 3)`).
+However, we know our data.
+The adjusted TTR tries to correct for having too many punctuations and numbers.
+The MATTR is essentially trying to get a better estimate of the true document normal diversity when compared to the normal TTR.
+So it makes sense to check some pair wise values too.
+
+```{r, results = 'hold'}
+ct_1 = cor.test(diversity[, 'TTR'], diversity[, 'ATTR'])
+ct_2 = cor.test(diversity[, 'TTR'], diversity[, 'MATTR500'])
+ct_3 = cor.test(diversity[, 'TTR'], diversity[, 'MATTR1k'])
+ct_4 = cor.test(diversity[, 'MATTR500'], diversity[, 'MATTR1k'])
+```
+
+When comparing TTR and adjusted TTR we find a significant ($p$ = `r round(ct_1$p.value, 3)`) hi correlation ($r$ = `r round(unname(ct_1$estimate), 3)`).
+The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
+So we remove the adjusted TTR (and its derivatives) from consideration.
+
+When comparing TTR and MATTR with window length 500, we find a significant ($p$ = `r round(ct_2$p.value, 3)`), but lo correlation ($r$ = `r round(unname(ct_2$estimate), 3)`).
+The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
+However, the overall correlation is not strong enough to merit its exclusion, _yet_.
+
+When comparing TTR and MATTR with window length 1000, we find a significant ($p$ = `r round(ct_3$p.value, 3)`), but lo correlation ($r$ = `r round(unname(ct_3$estimate), 3)`).
+The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
+However, the overall correlation is not strong enough to merit its exclusion, _yet_.
+
+When comparing the two different window lengths of MATTR, we find a significant ($p$ = `r round(ct_4$p.value, 3)`) hi correlation ($r$ = `r round(unname(ct_4$estimate), 3)`).
+The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
+
+Based on the above evidence, we elect to procede with just the MATTR500.
+We _could_ include both the TTR and the MATTR 500 (dur to the lower of the two corrlations), but that seems counter productive when the purpose of MATTR is to document normalise TTR.
+
+Gather up all the dependent variables at intrest into a single frame.
+
+```{r, results = 'hold'}
+diversity = diversity[, names(diversity) %in% c('id', 'MATTR500')]
+metadata = metadata[, !names(metadata) %in% c('url')]
+data = metadata %>% merge(cadence) %>% merge(diversity)
+```
+
+## Normality
+
+Schumacker [@schumacker2015using] recommends testing for both univariate and multivariate normality as a reasonable practice.
+
+```{r}
+univariate = function(data, column) {
+  t1 = ad.test(data[, column])
+  t2 = cvm.test(data[, column])
+  t3 = lillie.test(data[, column])
+  t4 = pearson.test(data[, column])
+  t5 = sf.test(data[, column])
+  
+  t2s = function(t) {
+    sprintf('%.3f (p = %.2f)',
+            unname(t$statistic),
+            unname(t$p.value)) }
+  
+  c(t2s(t1), t2s(t2), t2s(t3), t2s(t4), t2s(t5))
+}
+
+
+  
+  
+ad.test(data[,'Words'])
+cvm.test(data[,'Words'])
+lillie.test(data[,'Words'])
+pearson.test(data[,'Words'])
+sf.test(data[,'Words'])
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

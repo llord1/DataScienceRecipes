@@ -30,7 +30,10 @@ You will also need to have the following installed on your computer:
    [4](https://CRAN.R-project.org/package=ggplot2),
    [5](https://CRAN.R-project.org/package=kableExtra),
    [6](https://CRAN.R-project.org/package=knitr),
-   [7](https://CRAN.R-project.org/package=readr)
+   [7](https://CRAN.R-project.org/package=readr),
+   [8](https://CRAN.R-project.org/package=psych),
+   [9](https://CRAN.R-project.org/package=nortest),
+   [10](https://CRAN.R-project.org/package=mvnormtest)
 
 ## File off the serial numbers
 
