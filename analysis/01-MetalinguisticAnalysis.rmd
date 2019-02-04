@@ -11,7 +11,7 @@ editor_options:
 rm(list = ls())
 options(scipen = 999)
 
-libraries <- c('dplyr', 'ggpubr', 'psych', 'nortest', 'mvnormtest')
+libraries <- c('dplyr', 'ggpubr', 'psych', 'nortest', 'mvnormtest', 'devtools', 'mnmacros')
 lapply(libraries, library, character.only = TRUE)
 ```
 
@@ -121,23 +121,27 @@ However, the overall correlation is not strong enough to merit its exclusion, _y
 When comparing the two different window lengths of MATTR, we find a significant ($p$ = `r round(ct_4$p.value, 3)`) hi correlation ($r$ = `r round(unname(ct_4$estimate), 3)`).
 The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
 
-Based on the above evidence, we elect to procede with just the MATTR500.
-We _could_ include both the TTR and the MATTR 500 (dur to the lower of the two corrlations), but that seems counter productive when the purpose of MATTR is to document normalise TTR.
+Based on the above evidence, we elect to proceed with just the MATTR500.
+We _could_ include both the TTR and the MATTR 500 (due to the lower of the two correlations), but that seems counter productive when the purpose of MATTR is to document normalize TTR.
 
-Gather up all the dependent variables at intrest into a single frame.
+Gather up all the dependent variables at interest into a single frame.
+Preform one last omnibus ICC to make sure we are still good.
 
 ```{r, results = 'hold'}
 diversity = diversity[, names(diversity) %in% c('id', 'MATTR500')]
 metadata = metadata[, !names(metadata) %in% c('url')]
 data = metadata %>% merge(cadence) %>% merge(diversity)
+icc_data = ICC(data[, !names(data) %in% c('id', 'author')])
 ```
+
+Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_data$results$p[1], 3)`) low corrliation (ICC = `r round(icc_data$results$ICC[1], 3)`).
 
 ## Normality
 
 Schumacker [@schumacker2015using] recommends testing for both univariate and multivariate normality as a reasonable practice.
 
-```{r}
-univariate = function(data, column) {
+```{r, results = 'hold'}
+univariate <- function(data, column) {
   t1 = ad.test(data[, column])
   t2 = cvm.test(data[, column])
   t3 = lillie.test(data[, column])
@@ -152,23 +156,68 @@ univariate = function(data, column) {
   c(t2s(t1), t2s(t2), t2s(t3), t2s(t4), t2s(t5))
 }
 
+dv <- data[, !names(data) %in% c('id', 'author')]
+columns <- colnames(dv)
+cl <- length(columns)
+tmp <- vector(mode="list", length = cl)
+for(i in 1:cl) { tmp[[i]] <- univariate(dv, columns[i]) }
 
-  
-  
-ad.test(data[,'Words'])
-cvm.test(data[,'Words'])
-lillie.test(data[,'Words'])
-pearson.test(data[,'Words'])
-sf.test(data[,'Words'])
-
+normality <- do.call(rbind, tmp)
+rownames(normality) <- columns
+colnames(normality) <- c('Anderson Darling', 'Cramer von Mises', 'Kolmogorov Smirnov', 'Pearson Chi Square', 'Shapiro Francia')
 ```
 
+As we can see from Table \@ref(tab:normality), only Pearson consistently fails to reject the null hypothesis (normality).
+Only Words having the majority agrement.
+Idealy we would like all 5 tests to agree (all p > .05), but on real data, that is rare.
 
+```{r normality, results = 'hold', echo = F}
+knitr::kable(normality, booktabs = TRUE, caption = "Univariate Normality")
+```
 
+Intrestingly enough, it is posible to be univariate normal, but not multivariate normal.
+As the assumption is multivariate normal, make sure that even if all univariate tests pass, you check the other.
 
+```{r, results = 'hold'}
+st = dv %>% t() %>% shapiro.test()
+```
 
+The results from the multivariate normality test indicate that the four dependent variables are not jointly distributed ($W$ = `r rount(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`).
+So we need to transform the values.
+The best way to do that is to look at the plots so see what er need to change.
 
+```{r}
+hist(dv[, 'Words'])
+hist(dv[, 'Sentences'])
+hist(dv[, 'Paragraphs'])
+hist(dv[, 'MATTR500'])
+```
 
+None of them look really _good enough_ so transform them all and try again.
+
+```{r}
+dv[,1] <- dv[,1] %>% apply_bcskew0
+dv[,2] <- dv[,2] %>% apply_bcskew0
+dv[,3] <- dv[,3] %>% apply_bcskew0
+dv[,4] <- dv[,4] %>% apply_bcskew0
+
+tmp <- vector(mode="list", length = cl)
+for(i in 1:cl) { tmp[[i]] <- univariate(dv, columns[i]) }
+normality <- do.call(rbind, tmp)
+rownames(normality) <- columns
+colnames(normality) <- c('Anderson Darling', 'Cramer von Mises', 'Kolmogorov Smirnov', 'Pearson Chi Square', 'Shapiro Francia')
+st = dv %>% t() %>% shapiro.test()
+```
+
+Even after the transform, we still have a similar result ($W$ = `r rount(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`).
+When looking at the univariate results in Table \@ref(tab:normalityabc), it is clear that the issue lies in `MATTR500`.
+Given that only one of the numbers is not normal after transformation, it seems reasonable to procede. 
+
+```{r normalityabc, results = 'hold', echo = F}
+knitr::kable(normality, booktabs = TRUE, caption = "Univariate Normality with adjusted Box Cox skew 0")
+```
+
+# Equal variance-covariance matrix
 
 
 
