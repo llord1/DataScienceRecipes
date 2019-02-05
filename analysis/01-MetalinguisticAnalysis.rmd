@@ -11,8 +11,11 @@ editor_options:
 rm(list = ls())
 options(scipen = 999)
 
-libraries <- c('dplyr', 'ggpubr', 'psych', 'nortest', 'mvnormtest', 'devtools', 'mnmacros', 'biotools', 'tidyr')
-# install.packages(libraries) # if needed
+libraries <- c('dplyr', 'tidyr', 'ggpubr', 'mnmacros', 'nortest', 'mvnormtest', 'biotools', 'psych')
+# if needed
+# install.packages('devtools')
+# devtools::install_github("markanewman/mnmacros")
+# install.packages(libraries)
 x = lapply(libraries, library, character.only = TRUE)
 ```
 
@@ -78,18 +81,46 @@ They are not a _test_ of anything, but they can help us make descisions out of t
 c2 <-
   metadata %>%
   merge(cadence) %>%
-  select(author, Words, Sentences, Paragraphs)
+  transmute(
+    author,
+    Words = as.vector(scale(Words)),
+    Sentences = as.vector(scale(Sentences)),
+    Paragraphs = as.vector(scale(Paragraphs))) %>%
+  gather(type, count, -author) %>%
+  mutate(type = as.factor(type))
 
-ggdensity(wdata, x = "weight",
-   add = "mean", rug = TRUE,
-   color = "sex", fill = "sex",
-   palette = c("#00AFBB", "#E7B800"))
+cadence_density_plot <-
+  ggdensity(c2,
+    x = 'count',
+    add = 'mean',
+    color = 'type',
+    palette = get_palette('Dark2', 3),
+    title = 'Cadence Distribution',
+    xlab = 'scaled count')
 
+plot(cadence_density_plot)
 
+d2 <-
+  metadata %>%
+  merge(diversity) %>%
+  transmute(
+    author,
+    TTR = as.vector(scale(TTR)),
+    MATTR500 = as.vector(scale(MATTR500)),
+    MATTR1k = as.vector(scale(MATTR1k))) %>%
+  gather(type, count, -author) %>%
+  mutate(type = as.factor(type))
 
-ggplot(c2, aes(x=values)) + geom_density(aes(group=ind, colour=ind))
+diversity_density_plot <-
+  ggdensity(d2,
+    x = 'count',
+    add = 'mean',
+    color = 'type',
+    palette = get_palette('Dark2', 3),
+    title = 'Diversity Distribution',
+    xlab = 'scaled count')
 
-p <- cadence
+plot(diversity_density_plot)
 ```
 
 ## Independent Observations
