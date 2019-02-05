@@ -1,0 +1,2 @@
+progressbar2==3.39.2
+nltk==3.4
