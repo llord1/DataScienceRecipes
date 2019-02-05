@@ -39,6 +39,15 @@ As our source comes from [Project Gutenberg][gutenberg], the sentences need to b
 If you get the documents with different formats, they need to be normalized before measures are taken.
 So you may need to modify `tokenize_corpus()` to suit your purpose.
 
+## Prerequisites
+
+```{shell}
+pip install -r requirement.txt
+python -c "import nltk; nltk.download('punkt')"
+python -c "import nltk; nltk.download('averaged_perceptron_tagger')"
+```
+
+## Gather Measures
 ```{shell}
 python -c "import tokenize_corpus; tokenize_corpus.tokenize_corpus('../data/corpus.tar')"
 python -c "import measure_cadence; measure_cadence.measure_cadence('../data/tokenized.tar')"
