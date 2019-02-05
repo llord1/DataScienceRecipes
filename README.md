@@ -25,15 +25,11 @@ You will also need to have the following installed on your computer:
    [3](http://www.latofonts.com/lato-free-fonts)
 5. A few R packages
    [1](https://CRAN.R-project.org/package=bookdown),
-   [2](https://CRAN.R-project.org/package=devtools),
-   [3](https://CRAN.R-project.org/package=dplyr),
-   [4](https://CRAN.R-project.org/package=ggplot2),
-   [5](https://CRAN.R-project.org/package=kableExtra),
-   [6](https://CRAN.R-project.org/package=knitr),
-   [7](https://CRAN.R-project.org/package=readr),
-   [8](https://CRAN.R-project.org/package=psych),
-   [9](https://CRAN.R-project.org/package=nortest),
-   [10](https://CRAN.R-project.org/package=mvnormtest)
+   [2](https://CRAN.R-project.org/package=kableExtra),
+   [3](https://CRAN.R-project.org/package=knitr)
+6. Any addtional R packages needed by an analysis will be noted in the RMD.
+7. Any Python packages needed by an analysis will be noted in the RMD's companion walkthrough MD
+
 
 ## File off the serial numbers
 
