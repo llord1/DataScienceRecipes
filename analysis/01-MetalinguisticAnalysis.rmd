@@ -11,8 +11,9 @@ editor_options:
 rm(list = ls())
 options(scipen = 999)
 
-libraries <- c('dplyr', 'ggpubr', 'psych', 'nortest', 'mvnormtest', 'devtools', 'mnmacros')
-lapply(libraries, library, character.only = TRUE)
+libraries <- c('dplyr', 'ggpubr', 'psych', 'nortest', 'mvnormtest', 'devtools', 'mnmacros', 'biotools', 'tidyr')
+# install.packages(libraries) # if needed
+x = lapply(libraries, library, character.only = TRUE)
 ```
 
 A Metalinguistic Analysis compares the linguistic features of a corpus across some metadata segment.
@@ -41,26 +42,18 @@ For this recipe, 3 files are expected:
   3. **Sentences**: Total sentences in the document
   4. **Paragraphs**: Total paragraphs in the document
 * A `diversity.csv` file containing diversity measures.
-  This file will contain 7 columns:
+  This file will contain 4 columns:
   1. **id**: the document's id
   2. **TTR**: the type-token ratio (TTR)
   3. **MATTR500**: the moving average type-token ratio (MATTR)
      * Window length 500
   4. **MATTR1k**: the moving average type-token ratio
      * Window length 1000
-  5. **ATTR**: the type-token ratio
-     * Adjusted to excluse non-word tokens
-  6. **AMATTR500**: the moving average type-token ratio
-     * Window length 500
-     * Adjusted to excluse non-word tokens
-  7. **AMATTR1k**: the moving average type-token ratio
-     * Window length 1000
-     * Adjusted to excluse non-word tokens
 
 ```{r, results = 'hold'}
-metadata = read.csv('../data/metadata.csv')
-cadence = read.csv('../data/cadence.csv')
-diversity = read.csv('../data/diversity.csv')
+metadata <- read.csv('../data/metadata.csv')
+cadence <- read.csv('../data/cadence.csv')
+diversity <- read.csv('../data/diversity.csv')
 ```
 
 # Check Assumptions.
@@ -75,6 +68,29 @@ The assumptions we need to test are as follows:
 * Independent Observations
 * Normality
 * Equal variance-covariance matrix
+
+## Charts
+
+Looking at charts helps inform us about our data.
+They are not a _test_ of anything, but they can help us make descisions out of the gate.
+
+```{r}
+c2 <-
+  metadata %>%
+  merge(cadence) %>%
+  select(author, Words, Sentences, Paragraphs)
+
+ggdensity(wdata, x = "weight",
+   add = "mean", rug = TRUE,
+   color = "sex", fill = "sex",
+   palette = c("#00AFBB", "#E7B800"))
+
+
+
+ggplot(c2, aes(x=values)) + geom_density(aes(group=ind, colour=ind))
+
+p <- cadence
+```
 
 ## Independent Observations
 
@@ -100,7 +116,6 @@ The MATTR is essentially trying to get a better estimate of the true document no
 So it makes sense to check some pair wise values too.
 
 ```{r, results = 'hold'}
-ct_1 = cor.test(diversity[, 'TTR'], diversity[, 'ATTR'])
 ct_2 = cor.test(diversity[, 'TTR'], diversity[, 'MATTR500'])
 ct_3 = cor.test(diversity[, 'TTR'], diversity[, 'MATTR1k'])
 ct_4 = cor.test(diversity[, 'MATTR500'], diversity[, 'MATTR1k'])
@@ -186,7 +201,7 @@ The results from the multivariate normality test indicate that the four dependen
 So we need to transform the values.
 The best way to do that is to look at the plots so see what er need to change.
 
-```{r}
+```{r, results = 'hold'}
 hist(dv[, 'Words'])
 hist(dv[, 'Sentences'])
 hist(dv[, 'Paragraphs'])
@@ -195,7 +210,7 @@ hist(dv[, 'MATTR500'])
 
 None of them look really _good enough_ so transform them all and try again.
 
-```{r}
+```{r, results = 'hold'}
 dv[,1] <- dv[,1] %>% apply_bcskew0
 dv[,2] <- dv[,2] %>% apply_bcskew0
 dv[,3] <- dv[,3] %>% apply_bcskew0
@@ -211,13 +226,20 @@ st = dv %>% t() %>% shapiro.test()
 
 Even after the transform, we still have a similar result ($W$ = `r rount(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`).
 When looking at the univariate results in Table \@ref(tab:normalityabc), it is clear that the issue lies in `MATTR500`.
-Given that only one of the numbers is not normal after transformation, it seems reasonable to procede. 
+Given that only one of the numbers is not normal after transformation, it seems reasonable enough to procede. 
 
 ```{r normalityabc, results = 'hold', echo = F}
 knitr::kable(normality, booktabs = TRUE, caption = "Univariate Normality with adjusted Box Cox skew 0")
 ```
 
 # Equal variance-covariance matrix
+
+```{r}
+iv <- data[, names(data) %in% c('id', 'author')]
+data <- cbind(iv, dv)
+bm <- boxM(data[, !names(data) %in% c('id', 'author', 'MATTR500')], data[, 'author'])
+```
+
 
 
 
