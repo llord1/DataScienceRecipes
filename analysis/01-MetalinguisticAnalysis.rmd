@@ -78,57 +78,83 @@ Looking at charts helps inform us about our data.
 They are not a _test_ of anything, but they can help us make descisions out of the gate.
 
 ```{r}
-c2 <-
+cadence_words <-
   metadata %>%
   merge(cadence) %>%
-  transmute(
-    author,
-    Words = as.vector(scale(Words)),
-    Sentences = as.vector(scale(Sentences)),
-    Paragraphs = as.vector(scale(Paragraphs))) %>%
+  transmute(author, Words) %>%
   gather(type, count, -author) %>%
   mutate(type = as.factor(type))
 
-cadence_density_plot <-
-  ggdensity(c2,
+word_density_plot <-
+  ggdensity(cadence_words,
     x = 'count',
     add = 'mean',
     color = 'type',
-    palette = get_palette('Dark2', 3),
-    title = 'Cadence Distribution',
-    xlab = 'scaled count')
+    palette = get_palette('Dark2', 1),
+    title = 'Word Distribution')
 
-plot(cadence_density_plot)
+plot(word_density_plot)
 
-d2 <-
+cadence_sentence <-
+  metadata %>%
+  merge(cadence) %>%
+  transmute(author, Sentences) %>%
+  gather(type, count, -author) %>%
+  mutate(type = as.factor(type))
+
+sentence_density_plot <-
+  ggdensity(cadence_sentence,
+    x = 'count',
+    add = 'mean',
+    color = 'type',
+    palette = get_palette('Dark2', 1),
+    title = 'Sentence Distribution')
+
+plot(sentence_density_plot)
+
+cadence_paragraph <-
+  metadata %>%
+  merge(cadence) %>%
+  transmute(author, Paragraphs) %>%
+  gather(type, count, -author) %>%
+  mutate(type = as.factor(type))
+
+paragraph_density_plot <-
+  ggdensity(cadence_paragraph,
+    x = 'count',
+    add = 'mean',
+    color = 'type',
+    palette = get_palette('Dark2', 1),
+    title = 'Paragraph Distribution')
+
+plot(paragraph_density_plot)
+
+diversity2 <-
   metadata %>%
   merge(diversity) %>%
-  transmute(
-    author,
-    TTR = as.vector(scale(TTR)),
-    MATTR500 = as.vector(scale(MATTR500)),
-    MATTR1k = as.vector(scale(MATTR1k))) %>%
+  transmute(author, TTR, MATTR500, MATTR1k) %>%
   gather(type, count, -author) %>%
   mutate(type = as.factor(type))
 
 diversity_density_plot <-
-  ggdensity(d2,
+  ggdensity(diversity2,
     x = 'count',
     add = 'mean',
     color = 'type',
     palette = get_palette('Dark2', 3),
-    title = 'Diversity Distribution',
-    xlab = 'scaled count')
+    title = 'TTR / MATTR Distribution')
 
 plot(diversity_density_plot)
 ```
+
+Both plots look like we might be normal, or that we can wrangle them into being normal.
 
 ## Independent Observations
 
 Independent Observations here is not that we included 2 documents twice, but that the measure is measuring the same thing.
 
 ```{r, results = 'hold'}
-icc_cadence = ICC(cadence[, !names(cadence) %in% c('id')])
+(icc_cadence <- ICC(cadence[, !names(cadence) %in% c('id')]))
 ```
 
 Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_cadence$results$p[1], 3)`) low corrliation (ICC = `r round(icc_cadence$results$ICC[1], 3)`).
@@ -137,50 +163,41 @@ _If_ the measures _were_ dependent we loose the rational for running a MANOVA.
 A simple ANOVA on the strongest measure (usualy words) would be the next step
 
 ```{r, results = 'hold'}
-icc_diversity = ICC(diversity[, !names(cadence) %in% c('id')])
+(icc_diversity <- ICC(diversity[, !names(cadence) %in% c('id')]))
 ```
 
 Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_diversity$results$p[1], 3)`) low corrliation (ICC = `r round(icc_diversity$results$ICC[1], 3)`).
+The omnibus test fails to reject the null hypothesis and so we conclude that there is not sufficant evedance to support the different measures being dependent.
 However, we know our data.
-The adjusted TTR tries to correct for having too many punctuations and numbers.
 The MATTR is essentially trying to get a better estimate of the true document normal diversity when compared to the normal TTR.
 So it makes sense to check some pair wise values too.
 
 ```{r, results = 'hold'}
-ct_2 = cor.test(diversity[, 'TTR'], diversity[, 'MATTR500'])
-ct_3 = cor.test(diversity[, 'TTR'], diversity[, 'MATTR1k'])
-ct_4 = cor.test(diversity[, 'MATTR500'], diversity[, 'MATTR1k'])
+(ct_1 <- cor.test(diversity[, 'TTR'], diversity[, 'MATTR500']))
+(ct_2 <- cor.test(diversity[, 'TTR'], diversity[, 'MATTR1k']))
+(ct_4 <- cor.test(diversity[, 'MATTR500'], diversity[, 'MATTR1k']))
 ```
 
-When comparing TTR and adjusted TTR we find a significant ($p$ = `r round(ct_1$p.value, 3)`) hi correlation ($r$ = `r round(unname(ct_1$estimate), 3)`).
+When comparing TTR to either MATTR (either 500 or 1000), we find a significant ($p$ = `r round(ct_1$p.value, 3)` / $p$ = `r round(ct_2$p.value, 3)`) medimum correlation ($r$ = `r round(unname(ct_1$estimate), 3)` / $r$ = `r round(unname(ct_2$estimate), 3)`).
+In both cases, the pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
+When comparing the two different window lengths of MATTR, we find a significant ($p$ = `r round(ct_3$p.value, 3)`) hi correlation ($r$ = `r round(unname(ct_3$estimate), 3)`).
 The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
-So we remove the adjusted TTR (and its derivatives) from consideration.
-
-When comparing TTR and MATTR with window length 500, we find a significant ($p$ = `r round(ct_2$p.value, 3)`), but lo correlation ($r$ = `r round(unname(ct_2$estimate), 3)`).
-The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
-However, the overall correlation is not strong enough to merit its exclusion, _yet_.
-
-When comparing TTR and MATTR with window length 1000, we find a significant ($p$ = `r round(ct_3$p.value, 3)`), but lo correlation ($r$ = `r round(unname(ct_3$estimate), 3)`).
-The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
-However, the overall correlation is not strong enough to merit its exclusion, _yet_.
-
-When comparing the two different window lengths of MATTR, we find a significant ($p$ = `r round(ct_4$p.value, 3)`) hi correlation ($r$ = `r round(unname(ct_4$estimate), 3)`).
-The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
-
-Based on the above evidence, we elect to proceed with just the MATTR500.
-We _could_ include both the TTR and the MATTR 500 (due to the lower of the two correlations), but that seems counter productive when the purpose of MATTR is to document normalize TTR.
+Based on the above evidence, we elect to proceed with just the MATTR1k.
 
 Gather up all the dependent variables at interest into a single frame.
 Preform one last omnibus ICC to make sure we are still good.
 
 ```{r, results = 'hold'}
-diversity = diversity[, names(diversity) %in% c('id', 'MATTR500')]
-metadata = metadata[, !names(metadata) %in% c('url')]
-data = metadata %>% merge(cadence) %>% merge(diversity)
-icc_data = ICC(data[, !names(data) %in% c('id', 'author')])
+data <-
+  metadata %>%
+  merge(cadence) %>%
+  merge(diversity) %>%
+  transmute(author, Words, Sentences, Paragraphs, MATTR1k)
+
+(icc_data = ICC(data[, !names(data) %in% c('author')]))
 ```
 
-Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_data$results$p[1], 3)`) low corrliation (ICC = `r round(icc_data$results$ICC[1], 3)`).
+Looking at the 1st ICC, we can see a non-significant ($p$ = `r round(icc_data$results$p[1], 3)`) low corrliation (ICC = `r round(icc_data$results$ICC[1], 3)`).
 
 ## Normality
 
