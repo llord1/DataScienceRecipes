@@ -65,7 +65,7 @@ Normally, MANOVA is known to be robust.
 What this _actualy_ means is to works well if the assumptions are violated, but only under certain circumstances.
 The circumstance being a balanced design.
 Unfortunately, a metalinguistic analysis is almost never balanced.
-This means we are at least forsed to use type III SS measures
+This means we are at least forced to use type III SS measures
 
 The assumptions we need to test are as follows:
 
@@ -76,7 +76,7 @@ The assumptions we need to test are as follows:
 ## Charts
 
 Looking at charts helps inform us about our data.
-They are not a _test_ of anything, but they can help us make descisions out of the gate.
+They are not a _test_ of anything, but they can help us make decisions out of the gate.
 
 ```{r}
 cadence_words <-
@@ -167,17 +167,17 @@ Independent Observations here is not that we included 2 documents twice, but tha
 (icc_cadence <- ICC(cadence[, !names(cadence) %in% c('id')]))
 ```
 
-Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_cadence$results$p[1], 3)`) low corrliation (ICC = `r round(icc_cadence$results$ICC[1], 3)`).
-The omnibus test fails to reject the null hypothesis and so we conclude that there is not sufficant evedance to support the different measures being dependent.
+Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_cadence$results$p[1], 3)`) low correlation (ICC = `r round(icc_cadence$results$ICC[1], 3)`).
+The omnibus test fails to reject the null hypothesis and so we conclude that there is not sufficient evidence to support the different measures being dependent.
 _If_ the measures _were_ dependent we loose the rational for running a MANOVA.
-A simple ANOVA on the strongest measure (usualy words) would be the next step
+A simple ANOVA on the strongest measure (usually words) would be the next step
 
 ```{r, results = 'hold'}
 (icc_diversity <- ICC(diversity[, !names(cadence) %in% c('id')]))
 ```
 
-Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_diversity$results$p[1], 3)`) low corrliation (ICC = `r round(icc_diversity$results$ICC[1], 3)`).
-The omnibus test fails to reject the null hypothesis and so we conclude that there is not sufficant evedance to support the different measures being dependent.
+Looking at the 1st ICC, we can see a non-significant (p = `r round(icc_diversity$results$p[1], 3)`) low correlation (ICC = `r round(icc_diversity$results$ICC[1], 3)`).
+The omnibus test fails to reject the null hypothesis and so we conclude that there is not sufficient evidence to support the different measures being dependent.
 However, we know our data.
 The MATTR is essentially trying to get a better estimate of the true document normal diversity when compared to the normal TTR.
 So it makes sense to check some pair wise values too.
@@ -188,7 +188,7 @@ So it makes sense to check some pair wise values too.
 (ct_3 <- cor.test(diversity[, 'MATTR500'], diversity[, 'MATTR1k']))
 ```
 
-When comparing TTR to either MATTR (either 500 or 1000), we find a significant ($p$ = `r round(ct_1$p.value, 3)` / $p$ = `r round(ct_2$p.value, 3)`) medimum correlation ($r$ = `r round(unname(ct_1$estimate), 3)` / $r$ = `r round(unname(ct_2$estimate), 3)`).
+When comparing TTR to either MATTR (either 500 or 1000), we find a significant ($p$ = `r round(ct_1$p.value, 3)` / $p$ = `r round(ct_2$p.value, 3)`) medium correlation ($r$ = `r round(unname(ct_1$estimate), 3)` / $r$ = `r round(unname(ct_2$estimate), 3)`).
 In both cases, the pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
 When comparing the two different window lengths of MATTR, we find a significant ($p$ = `r round(ct_3$p.value, 3)`) hi correlation ($r$ = `r round(unname(ct_3$estimate), 3)`).
 The pair-wise test rejects the null hypothesis and so we concluder that there is evidence to support the different measures being dependent.
@@ -207,7 +207,7 @@ data <-
 (icc_data = ICC(data[, !names(data) %in% c('author')]))
 ```
 
-Looking at the 1st ICC, we can see a non-significant ($p$ = `r round(icc_data$results$p[1], 3)`) low corrliation (ICC = `r round(icc_data$results$ICC[1], 3)`).
+Looking at the 1st ICC, we can see a non-significant ($p$ = `r round(icc_data$results$p[1], 3)`) low correlation (ICC = `r round(icc_data$results$ICC[1], 3)`).
 Based on both the final omnibus test, we feel safe to proceed.
 
 ## Normality
@@ -249,14 +249,14 @@ Idealy we would like all 5 tests to agree (all p > .05), but on real data, that 
 knitr::kable(normality, booktabs = TRUE, caption = "Univariate Normality")
 ```
 
-Intrestingly enough, it is posible to be univariate normal, but not multivariate normal and vise versa.
+Interestingly enough, it is possible to be univariate normal, but not multivariate normal and vise versa.
 As the assumption is multivariate normal, make sure that even if all univariate tests pass, you check the other.
 
 ```{r, results = 'hold'}
 (st = dv %>% t() %>% shapiro.test())
 ```
 
-The results from the multivariate normality test reject the null hypothesis, so we find evedence that the distribution is not jointly normal ($W$ = `r round(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`).
+The results from the multivariate normality test reject the null hypothesis, so we find evidence that the distribution is not jointly normal ($W$ = `r round(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`).
 So we need to transform the values.
 Based on Table \@ref(tab:univariate-normality) we are pretty sure we need to adjust them all.
 
@@ -274,8 +274,8 @@ colnames(transformed_normality) <- c('Anderson Darling', 'Cramer von Mises', 'Ko
 (tst = dv %>% t() %>% shapiro.test())
 ```
 
-As we can see from Table \@ref(tab:transformed-univariate-normality), after the Box-Cox transform, all univariate tests accross all measures agree on normality.
-After the transform, while we still have a similar p value ($p$ = `r round(st$p.value, 3)`) from the multivariate result, the $W$ (the important part) is vastly improved ($W$ = `r round(unname(st$statistic), 3)` to $W$ = `r round(unname(tst$statistic), 3)`), though still not quite in the .90+ range we would idealy like to see.
+As we can see from Table \@ref(tab:transformed-univariate-normality), after the Box-Cox transform, all univariate tests across all measures agree on normality.
+After the transform, while we still have a similar p value ($p$ = `r round(st$p.value, 3)`) from the multivariate result, the $W$ (the important part) is vastly improved ($W$ = `r round(unname(st$statistic), 3)` to $W$ = `r round(unname(tst$statistic), 3)`), though still not quite in the .90+ range we would ideally like to see.
 Based on both the univariate and multivariate results, we feel safe to proceed.
 
 ```{r transformed-univariate-normality, results = 'hold', echo = F}
@@ -289,22 +289,3 @@ knitr::kable(transformed_normality, booktabs = TRUE, caption = "Univariate Norma
 # data <- cbind(iv, dv)
 # bm <- boxM(data[, !names(data) %in% c('id', 'author', 'MATTR500')], data[, 'author'])
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
