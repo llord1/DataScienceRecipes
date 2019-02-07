@@ -162,7 +162,7 @@ All the figures look like they _might_ already be normal, or that at least we ca
 
 ## Independent Observations
 
-Independent Observations here is not that we included 2 documents twice, but that the measure is measuring the same thing.
+Independent observations doesn't mean that one document was accedently included in the corpus twice, but rather that two of the measures are actualy measuring the same thing.
 
 ```{r, results = 'hold'}
 (icc_cadence <- ICC(cadence[, !names(cadence) %in% c('id')]))
