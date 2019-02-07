@@ -11,12 +11,13 @@ editor_options:
 rm(list = ls())
 options(scipen = 999)
 
-libraries <- c('dplyr', 'tidyr', 'ggpubr', 'nortest', 'mvnormtest', 'biotools', 'psych', 'car')
+libraries <- c('dplyr', 'tidyr', 'ggpubr', 'mvnormtest', 'biotools', 'psych', 'car')
 # if needed
 # install.packages(libraries)
-x = lapply(libraries, library, character.only = TRUE)
+x = lapply(libraries, require, character.only = TRUE)
 
 source("./utils.r")
+libraries <- c(libraries, util_libraries)
 ```
 
 A Metalinguistic Analysis compares the linguistic features of a corpus across some metadata segment.
@@ -222,51 +223,24 @@ dv <- data[, !names(data) %in% iv_columns]
 ```
 
 Even though the assumption is joint multivariate normality, Schumacker [@schumacker2015using] recommends that testing for both univariate and multivariate normality as a good practice.
+Addtionaly, it is possible to be univariate normal, but not multivariate normal and vise versa.
+As the assumption is multivariate normal, make sure that even if all univariate tests pass, you check the other.
 
 ```{r, results = 'hold'}
-univariate <- function(data, column) {
-  t1 = ad.test(data[, column])
-  t2 = cvm.test(data[, column])
-  t3 = lillie.test(data[, column])
-  t4 = pearson.test(data[, column])
-  t5 = sf.test(data[, column])
-  
-  t2s = function(t) {
-    sprintf('%.3f (p = %.2f)',
-            unname(t$statistic),
-            unname(t$p.value)) }
-  
-  c(t2s(t1), t2s(t2), t2s(t3), t2s(t4), t2s(t5))
-}
-
-columns <- colnames(dv)
-cl <- length(columns)
-tmp <- vector(mode="list", length = cl)
-for(i in 1:cl) { tmp[[i]] <- univariate(dv, columns[i]) }
-
-normality <- do.call(rbind, tmp)
-rownames(normality) <- columns
-colnames(normality) <- c('Anderson Darling', 'Cramer von Mises', 'Kolmogorov Smirnov', 'Pearson Chi Square', 'Shapiro Francia')
+normality <- test_univariate_normality(dv)
+(st <- dv %>% t() %>% shapiro.test())
 ```
 
 As we can see from Table \@ref(tab:univariate-normality), only MATTR1k _might_ be normal.
 Our cadence measures consistently reject the null hypothesis of normality.
 Idealy we would like all 5 tests to agree (all p > .05), but on real data, that is rare.
+Furtheremore, the results from the multivariate normality test reject the null hypothesis, so we find evidence that the distribution is not jointly normal ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r pv2str(st$p.value)`).
+So we need to transform the values.
+Based on Table \@ref(tab:univariate-normality) we are pretty sure we need to adjust them all.
 
 ```{r univariate-normality, results = 'hold', echo = F}
 knitr::kable(normality, booktabs = TRUE, caption = "Univariate Normality")
 ```
-
-Interestingly enough, it is possible to be univariate normal, but not multivariate normal and vise versa.
-As the assumption is multivariate normal, make sure that even if all univariate tests pass, you check the other.
-
-```{r, results = 'hold'}
-(st <- dv %>% t() %>% shapiro.test())
-```
-
-The results from the multivariate normality test reject the null hypothesis, so we find evidence that the distribution is not jointly normal ($W$ = `r round(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`).
-So we need to transform the values.
-Based on Table \@ref(tab:univariate-normality) we are pretty sure we need to adjust them all.
 
 ```{r, results = 'hold'}
 dv[,1] <- dv[,1] %>% apply_bcskew0 %>% as.vector()
@@ -274,17 +248,13 @@ dv[,2] <- dv[,2] %>% apply_bcskew0 %>% as.vector()
 dv[,3] <- dv[,3] %>% apply_bcskew0 %>% as.vector()
 dv[,4] <- dv[,4] %>% apply_bcskew0 %>% as.vector()
 
-tmp <- vector(mode="list", length = cl)
-for(i in 1:cl) { tmp[[i]] <- univariate(dv, columns[i]) }
-transformed_normality <- do.call(rbind, tmp)
-rownames(transformed_normality) <- columns
-colnames(transformed_normality) <- c('Anderson Darling', 'Cramer von Mises', 'Kolmogorov Smirnov', 'Pearson Chi Square', 'Shapiro Francia')
+transformed_normality <- test_univariate_normality(dv)
 (tst = dv %>% t() %>% shapiro.test())
 ```
 
 As we can see from Table \@ref(tab:transformed-univariate-normality), after the Box-Cox transform, all univariate tests across all measures agree on normality.
-After the transform, while we still have a similar p value ($p$ = `r round(st$p.value, 3)`) from the multivariate result, the $W$ (the important part) is vastly improved ($W$ = `r round(unname(st$statistic), 3)` to $W$ = `r round(unname(tst$statistic), 3)`), though still not quite in the .90+ range we would ideally like to see.
-Based on both the univariate and multivariate results, we feel safe to proceed.
+After the transform, while we still have a similar p-value ($p$ `r pv2str(tst$p.value)`) to the untransformed multivariate result, the $W$ (the important part) is vastly improved ($W$ = `r round(unname(st$statistic), 3)` to $W$ = `r round(unname(tst$statistic), 3)`), though still not quite in the .90+ range we would ideally like to see.
+Based on both the univariate and multivariate results, there is sufficent evedence to proceed _with causion_.
 
 ```{r transformed-univariate-normality, results = 'hold', echo = F}
 knitr::kable(transformed_normality, booktabs = TRUE, caption = "Univariate Normality with adjusted Box Cox skew 0")
@@ -322,7 +292,7 @@ Now check the overall covariance matrix
 (bm <- boxM(data[, !names(data) %in% iv_columns], data[, names(data) %in% iv_columns]))
 ```
 
-As we can see from `boxM()`, the result is signifigant ($p$ = `r round(bm$p.value, 3)`) so we reject the null hypothesis and say there is evedence to support the variance-covariance matrix being un-equal.
+As we can see from `boxM()`, the result is signifigant ($p$ `r pv2str(bm$p.value)`) so we reject the null hypothesis and say there is evedence to support the variance-covariance matrix being un-equal.
 `boxM()` is known to be particularly subsceptiable to normality violations so the not quite good enough $W$ probaly did the analysis in.
 This means that we can't use a traditional `manova()` command, instead we need to use a `lm()` and convert it to a MANOVA.
 
@@ -337,7 +307,8 @@ model <- lm(cbind(Words, Sentences, Paragraphs, MATTR1k) ~ author - 1, data = da
 (st <- model$residuals %>% t() %>% shapiro.test())
 ```
 
-As can be seen, _author_ is jointly statisticaly significant $F$(12, 349.53) = 327.1 ($p$ < .001) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`. Table \@ref(tab:univariate-results) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
+As can be seen, _author_ is jointly statisticaly significant $F$(12, 349.53) = 327.1 ($p$ < .001) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`.
+Table \@ref(tab:univariate-results) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
 
 ```{r univariate-results, results = 'hold', echo = F}
 # title <- 'The means, standard deviations, F values, degrees of freedom, p values, and effect sizes for the 4 variables analyzed.'

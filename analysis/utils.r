@@ -1,6 +1,10 @@
+util_libraries = c('moments', 'nortest')
+x = lapply(util_libraries, require, character.only = TRUE)
+
 #' algorithmly applies the uses the box-cox transform to make a skew of 0
 #' originaly from my personal stash of macros
 #' https://github.com/markanewman/mnmacros/blob/master/R/apply_bcskew0.r
+
 apply_bcskew0 <- function(x) {
   
   stopifnot(!(missing(x) || is.null(x)))
@@ -44,7 +48,7 @@ apply_bcskew0 <- function(x) {
 
 #' converts pvalues into the more familure  '< .05' format
 #' originaly from my personal stash of copy/paste macros
-pv2str = function(pv) {
+pv2str <- function(pv) {
   ifelse(
     pv < .0001, '< .0001',
     ifelse(
@@ -55,3 +59,31 @@ pv2str = function(pv) {
           pv < .05, '< .05',
           '> .05'))))
 } 
+
+#' runs the 5 standard univariate normality tests on every column in the data
+test_univariate_normality <- function(data) {
+  univariate <- function(data, column) {
+    t1 = ad.test(data[, column])
+    t2 = cvm.test(data[, column])
+    t3 = lillie.test(data[, column])
+    t4 = pearson.test(data[, column])
+    t5 = sf.test(data[, column])
+    
+    t2s = function(t) {
+      sprintf('%.3f (p = %.2f)',
+              unname(t$statistic),
+              unname(t$p.value)) }
+    
+    c(t2s(t1), t2s(t2), t2s(t3), t2s(t4), t2s(t5))
+  }
+  
+  columns <- colnames(dv)
+  cl <- length(columns)
+  tmp <- vector(mode="list", length = cl)
+  for(i in 1:cl) { tmp[[i]] <- univariate(dv, columns[i]) }
+  
+  normality <- do.call(rbind, tmp)
+  rownames(normality) <- columns
+  colnames(normality) <- c('Anderson Darling', 'Cramer von Mises', 'Kolmogorov Smirnov', 'Pearson Chi Square', 'Shapiro Francia')
+  normality
+}
