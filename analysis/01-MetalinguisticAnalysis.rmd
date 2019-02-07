@@ -37,7 +37,7 @@ For this recipe, 3 files are expected:
 * A `metadata.csv` file containing metadata data about the individual documents.
   This file needs to include at _least_ 2 columns:
   1. **id**: the document's id
-  2. the segment
+  2. The segment (i.e. **author**)
 * A `cadence.csv` file containing frequency count measures.
   This file will contain 4 columns:
   1. **id**: the document's id
@@ -212,7 +212,16 @@ Based on both the final omnibus test, we feel safe to proceed.
 
 ## Normality
 
-Schumacker [@schumacker2015using] recommends testing for both univariate and multivariate normality as a reasonable practice.
+Normality only matters for the DVs.
+So split appart the IVs and DVs.
+
+```{r, results = 'hold'}
+iv_columns <- c('author')
+iv <- data[, names(data) %in% iv_columns]
+dv <- data[, !names(data) %in% iv_columns]
+```
+
+Even though the assumption is joint multivariate normality, Schumacker [@schumacker2015using] recommends that testing for both univariate and multivariate normality as a good practice.
 
 ```{r, results = 'hold'}
 univariate <- function(data, column) {
@@ -230,7 +239,6 @@ univariate <- function(data, column) {
   c(t2s(t1), t2s(t2), t2s(t3), t2s(t4), t2s(t5))
 }
 
-dv <- data[, !names(data) %in% c('id', 'author')]
 columns <- colnames(dv)
 cl <- length(columns)
 tmp <- vector(mode="list", length = cl)
@@ -253,7 +261,7 @@ Interestingly enough, it is possible to be univariate normal, but not multivaria
 As the assumption is multivariate normal, make sure that even if all univariate tests pass, you check the other.
 
 ```{r, results = 'hold'}
-(st = dv %>% t() %>% shapiro.test())
+(st <- dv %>% t() %>% shapiro.test())
 ```
 
 The results from the multivariate normality test reject the null hypothesis, so we find evidence that the distribution is not jointly normal ($W$ = `r round(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`).
@@ -261,10 +269,10 @@ So we need to transform the values.
 Based on Table \@ref(tab:univariate-normality) we are pretty sure we need to adjust them all.
 
 ```{r, results = 'hold'}
-dv[,1] <- dv[,1] %>% apply_bcskew0
-dv[,2] <- dv[,2] %>% apply_bcskew0
-dv[,3] <- dv[,3] %>% apply_bcskew0
-dv[,4] <- dv[,4] %>% apply_bcskew0
+dv[,1] <- dv[,1] %>% apply_bcskew0 %>% as.vector()
+dv[,2] <- dv[,2] %>% apply_bcskew0 %>% as.vector()
+dv[,3] <- dv[,3] %>% apply_bcskew0 %>% as.vector()
+dv[,4] <- dv[,4] %>% apply_bcskew0 %>% as.vector()
 
 tmp <- vector(mode="list", length = cl)
 for(i in 1:cl) { tmp[[i]] <- univariate(dv, columns[i]) }
@@ -282,10 +290,86 @@ Based on both the univariate and multivariate results, we feel safe to proceed.
 knitr::kable(transformed_normality, booktabs = TRUE, caption = "Univariate Normality with adjusted Box Cox skew 0")
 ```
 
-# Equal variance-covariance matrix
+Stitch back together the IVs and the the transformed DVs.
 
-```{r}
-# iv <- data[, names(data) %in% c('id', 'author')]
-# data <- cbind(iv, dv)
-# bm <- boxM(data[, !names(data) %in% c('id', 'author', 'MATTR500')], data[, 'author'])
+```{r, results = 'hold'}
+cn <- colnames(data)
+data <- cbind(iv, dv)
+colnames(data) <- cn
 ```
+
+## Equal variance-covariance matrix
+
+Make sure we can even preform the analysis by testing for positive non-zero determinates.
+
+```{r, results = 'hold'}
+groups <- data$author %>% unique()
+posdet <- vector(mode = 'numeric', length = length(groups))
+for(i in 1:length(groups)) {
+  posdet[i] <- data %>%
+    filter(author == groups[i]) %>%
+    .[, !names(data) %in% iv_columns] %>%
+    cov() %>%
+    det()
+}
+posdet
+```
+
+All the different slices have positive non-zero determinates.
+Now check the overall covariance matrix
+
+```{r, results = 'hold'}
+(bm <- boxM(data[, !names(data) %in% iv_columns], data[, names(data) %in% iv_columns]))
+```
+
+As we can see from `boxM()`, the result is signifigant ($p$ = `r round(bm$p.value, 3)`) so we reject the null hypothesis and say there is evedence to support the variance-covariance matrix being un-equal.
+`boxM()` is known to be particularly subsceptiable to normality violations so the not quite good enough $W$ probaly did the analysis in.
+This means that we can't use a traditional `manova()` command, instead we need to use a `lm()` and convert it to a MANOVA.
+
+# Analysis and Results
+
+As stated above, we can't use `manova()` directly and must use Type III SS in our analysis.
+Any time a `lm()` is converted into a MANOVA, the `lm()` residules need to be checked for normality in order to yield more confidence in a model fit. 
+
+```{r, results = 'hold'}
+model <- lm(cbind(Words, Sentences, Paragraphs, MATTR1k) ~ author - 1, data = data)
+(ma <- Manova(model, multivariate = T, type = c('III'), test = 'Wilks'))
+(st <- model$residuals %>% t() %>% shapiro.test())
+```
+
+As can be seen, _author_ is jointly statisticaly significant $F$(12, 349.53) = 327.1 ($p$ < .001) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`. Table \@ref(tab:univariate-results) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
+
+```{r univariate-results, results = 'hold', echo = F}
+# title <- 'The means, standard deviations, F values, degrees of freedom, p values, and effect sizes for the 4 variables analyzed.'
+# 
+# column_names <- c(
+#   sprintf('CD (N=%i) M(SD)', dba$CD$n[1]),
+#   sprintf('JA (N=%i) M(SD)', dba$JA$n[1]),
+#   sprintf('MT (N=%i) M(SD)', dba$MT$n[1]),
+#   'F', 'P', '$\eta^{2}$')
+# 
+# dba = describeBy(data, group = 'author')
+# s1 <- summary(aov(Words ~ author, data = data))
+# s2 <- summary(aov(Sentences ~ author, data = data))
+# s3 <- summary(aov(Paragraphs ~ author, data = data))
+# s4 <- summary(aov(MATTR1k ~ author, data = data))
+# 
+# univariate_results <-
+# cbind(
+#   sprintf('%.2f (%.2f)', dba$CD$mean[2:5], dba$CD$sd[2:5]),
+#   sprintf('%.2f (%.2f)', dba$JA$mean[2:5], dba$JA$sd[2:5]),
+#   sprintf('%.2f (%.2f)', dba$MT$mean[2:5], dba$MT$sd[2:5]),
+#   c(round(models$`Response Words`$fstatistic[1], 3),
+#     round(models$`Response Sentences`$fstatistic[1], 3),
+#     round(models$`Response Paragraphs`$fstatistic[1], 3),
+#     round(models$`Response MATTR1k`$fstatistic[1], 3)),
+# )
+# colnames(univariate_results) <- column_names
+# rownames(univariate_results) <- rownames(dba$CD)[2:5]
+# 
+# 
+# 
+# knitr::kable(univariate_results, booktabs = T, caption = title)
+```
+
+
