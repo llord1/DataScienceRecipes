@@ -11,12 +11,12 @@ editor_options:
 rm(list = ls())
 options(scipen = 999)
 
-libraries <- c('dplyr', 'tidyr', 'ggpubr', 'mnmacros', 'nortest', 'mvnormtest', 'biotools', 'psych', 'car')
+libraries <- c('dplyr', 'tidyr', 'ggpubr', 'nortest', 'mvnormtest', 'biotools', 'psych', 'car')
 # if needed
-# install.packages('devtools')
-# devtools::install_github("markanewman/mnmacros")
 # install.packages(libraries)
 x = lapply(libraries, library, character.only = TRUE)
+
+source("./utils.r")
 ```
 
 A Metalinguistic Analysis compares the linguistic features of a corpus across some metadata segment.
