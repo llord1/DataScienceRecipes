@@ -1,10 +1,9 @@
-util_libraries = c('moments', 'nortest')
+util_libraries = c('moments', 'nortest', 'car')
 x = lapply(util_libraries, require, character.only = TRUE)
 
 #' algorithmly applies the uses the box-cox transform to make a skew of 0
 #' originaly from my personal stash of macros
 #' https://github.com/markanewman/mnmacros/blob/master/R/apply_bcskew0.r
-
 apply_bcskew0 <- function(x) {
   
   stopifnot(!(missing(x) || is.null(x)))
@@ -87,3 +86,21 @@ test_univariate_normality <- function(data) {
   colnames(normality) <- c('Anderson Darling', 'Cramer von Mises', 'Kolmogorov Smirnov', 'Pearson Chi Square', 'Shapiro Francia')
   normality
 }
+
+#' pulls out the manova values into a table
+#' https://stackoverflow.com/questions/25898691
+multivariate_significance_table <- function(mod) {
+  
+  tests <- c("Pillai", "Wilks", "Hotelling-Lawley", "Roy")
+  outtests <- car:::print.Anova.mlm
+
+  body(outtests)[[16]] <- quote(invisible(tests))
+  body(outtests)[[15]] <- NULL
+  
+  tab <- lapply(tests, function(i)  outtests(Anova(mod, test.statistic = i)))
+  
+  tab <- do.call(rbind, tab)
+  row.names(tab) <- tests
+  tab
+}
+

@@ -304,6 +304,7 @@ Any time a `lm()` is converted into a MANOVA, the `lm()` residules need to be ch
 ```{r, results = 'hold'}
 model <- lm(cbind(Words, Sentences, Paragraphs, MATTR1k) ~ author - 1, data = data)
 (ma <- Manova(model, multivariate = T, type = c('III'), test = 'Wilks'))
+mv_tab <- multivariate_significance_table(model)
 (st <- model$residuals %>% t() %>% shapiro.test())
 ```
 
