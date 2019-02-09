@@ -11,10 +11,10 @@ editor_options:
 rm(list = ls())
 options(scipen = 999)
 
-libraries <- c('dplyr', 'tidyr', 'ggpubr', 'mvnormtest', 'biotools', 'psych', 'car')
+libraries <- c('dplyr', 'tidyr', 'ggpubr', 'mvnormtest', 'biotools', 'psych')
 # if needed
 # install.packages(libraries)
-x = lapply(libraries, require, character.only = TRUE)
+invisible(lapply(libraries, require, character.only = TRUE))
 
 source("./utils.r")
 libraries <- c(libraries, util_libraries)
@@ -234,7 +234,7 @@ normality <- test_univariate_normality(dv)
 As we can see from Table \@ref(tab:univariate-normality), only MATTR1k _might_ be normal.
 Our cadence measures consistently reject the null hypothesis of normality.
 Idealy we would like all 5 tests to agree (all p > .05), but on real data, that is rare.
-Furtheremore, the results from the multivariate normality test reject the null hypothesis, so we find evidence that the distribution is not jointly normal ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r pv2str(st$p.value)`).
+Furtheremore, the results from the multivariate normality test reject the null hypothesis, so we find evidence that the distribution is not jointly normal ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`).
 So we need to transform the values.
 Based on Table \@ref(tab:univariate-normality) we are pretty sure we need to adjust them all.
 
@@ -253,7 +253,7 @@ transformed_normality <- test_univariate_normality(dv)
 ```
 
 As we can see from Table \@ref(tab:transformed-univariate-normality), after the Box-Cox transform, all univariate tests across all measures agree on normality.
-After the transform, while we still have a similar p-value ($p$ `r pv2str(tst$p.value)`) to the untransformed multivariate result, the $W$ (the important part) is vastly improved ($W$ = `r round(unname(st$statistic), 3)` to $W$ = `r round(unname(tst$statistic), 3)`), though still not quite in the .90+ range we would ideally like to see.
+After the transform, while we still have a similar p-value ($p$ `r apa_pvalue(tst$p.value)`) to the untransformed multivariate result, the $W$ (the important part) is vastly improved ($W$ = `r round(unname(st$statistic), 3)` to $W$ = `r round(unname(tst$statistic), 3)`), though still not quite in the .90+ range we would ideally like to see.
 Based on both the univariate and multivariate results, there is sufficent evedence to proceed _with causion_.
 
 ```{r transformed-univariate-normality, results = 'hold', echo = F}
@@ -292,7 +292,7 @@ Now check the overall covariance matrix
 (bm <- boxM(data[, !names(data) %in% iv_columns], data[, names(data) %in% iv_columns]))
 ```
 
-As we can see from `boxM()`, the result is signifigant ($p$ `r pv2str(bm$p.value)`) so we reject the null hypothesis and say there is evedence to support the variance-covariance matrix being un-equal.
+As we can see from `boxM()`, the result is signifigant ($p$ `r apa_pvalue(bm$p.value)`) so we reject the null hypothesis and say there is evedence to support the variance-covariance matrix being un-equal.
 `boxM()` is known to be particularly subsceptiable to normality violations so the not quite good enough $W$ probaly did the analysis in.
 This means that we can't use a traditional `manova()` command, instead we need to use a `lm()` and convert it to a MANOVA.
 
@@ -303,12 +303,13 @@ Any time a `lm()` is converted into a MANOVA, the `lm()` residules need to be ch
 
 ```{r, results = 'hold'}
 model <- lm(cbind(Words, Sentences, Paragraphs, MATTR1k) ~ author - 1, data = data)
-(ma <- Manova(model, multivariate = T, type = c('III'), test = 'Wilks'))
-mv_tab <- multivariate_significance_table(model)
 (st <- model$residuals %>% t() %>% shapiro.test())
+(ma <- Manova(model, multivariate = T, type = c('III'), test = 'Wilks'))
+(mv_tab <- lm_to_manova(model))
+
 ```
 
-As can be seen, _author_ is jointly statisticaly significant $F$(12, 349.53) = 327.1 ($p$ < .001) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ = `r round(st$p.value, 3)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`.
+As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r mv_tab[2,4]`, `r mv_tab[2,5]`) = `r mv_tab[2,3]` ($p$ `r apa_pvalue(mv_tab[2,6])`) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`.
 Table \@ref(tab:univariate-results) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
 
 ```{r univariate-results, results = 'hold', echo = F}

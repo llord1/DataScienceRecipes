@@ -1,5 +1,5 @@
 util_libraries = c('moments', 'nortest', 'car')
-x = lapply(util_libraries, require, character.only = TRUE)
+invisible(lapply(util_libraries, require, character.only = TRUE))
 
 #' algorithmly applies the uses the box-cox transform to make a skew of 0
 #' originaly from my personal stash of macros
@@ -47,16 +47,12 @@ apply_bcskew0 <- function(x) {
 
 #' converts pvalues into the more familure  '< .05' format
 #' originaly from my personal stash of copy/paste macros
-pv2str <- function(pv) {
+apa_pvalue <- function(pv) {
   ifelse(
-    pv < .0001, '< .0001',
+    pv < .001, '< .001',
     ifelse(
-      pv < .001, '< .001',
-      ifelse(
-        pv < .01, '< .01',
-        ifelse(
-          pv < .05, '< .05',
-          '> .05'))))
+      pv < .05, sprintf('= %.3f'),
+        '> .05'))
 } 
 
 #' runs the 5 standard univariate normality tests on every column in the data
@@ -89,7 +85,7 @@ test_univariate_normality <- function(data) {
 
 #' pulls out the manova values into a table
 #' https://stackoverflow.com/questions/25898691
-multivariate_significance_table <- function(mod) {
+lm_to_manova <- function(model, type = c('III')) {
   
   tests <- c("Pillai", "Wilks", "Hotelling-Lawley", "Roy")
   outtests <- car:::print.Anova.mlm
@@ -97,8 +93,17 @@ multivariate_significance_table <- function(mod) {
   body(outtests)[[16]] <- quote(invisible(tests))
   body(outtests)[[15]] <- NULL
   
-  tab <- lapply(tests, function(i)  outtests(Anova(mod, test.statistic = i)))
+  mvf <- function(test_name) {
+    result <-
+      Manova(
+        model,
+        type = type,
+        multivariate = T,
+        test.statistic = test_name)
+    outtests(result)
+  }
   
+  tab <- lapply(tests, mvf)
   tab <- do.call(rbind, tab)
   row.names(tab) <- tests
   tab
