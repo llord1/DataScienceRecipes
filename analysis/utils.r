@@ -83,11 +83,11 @@ test_univariate_normality <- function(data) {
   normality
 }
 
-#' pulls out the manova values into a table
+#' pulls out the (m)anova values into a table
 #' https://stackoverflow.com/questions/25898691
-lm_to_manova <- function(model, type = c('III')) {
+lm_to_anova <- function(model, multivariate = F, type = c('II')) {
   
-  tests <- c("Pillai", "Wilks", "Hotelling-Lawley", "Roy")
+  tests <- c('Pillai', 'Wilks', 'Hotelling-Lawley', 'Roy')
   outtests <- car:::print.Anova.mlm
 
   body(outtests)[[16]] <- quote(invisible(tests))
@@ -95,17 +95,19 @@ lm_to_manova <- function(model, type = c('III')) {
   
   mvf <- function(test_name) {
     result <-
-      Manova(
+      Anova(
         model,
         type = type,
-        multivariate = T,
+        multivariate = multivariate,
         test.statistic = test_name)
-    outtests(result)
+    result <- outtests(result)
+    result <- result[row.names(result) != "(Intercept)",]
+    row.names(result) <- sprintf('%s %s', test_name, row.names(result))
+    result
   }
   
   tab <- lapply(tests, mvf)
   tab <- do.call(rbind, tab)
-  row.names(tab) <- tests
   tab
 }
 

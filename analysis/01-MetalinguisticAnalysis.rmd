@@ -302,11 +302,10 @@ As stated above, we can't use `manova()` directly and must use Type III SS in ou
 Any time a `lm()` is converted into a MANOVA, the `lm()` residules need to be checked for normality in order to yield more confidence in a model fit. 
 
 ```{r, results = 'hold'}
-model <- lm(cbind(Words, Sentences, Paragraphs, MATTR1k) ~ author - 1, data = data)
+model <- lm(cbind(Words, Sentences, Paragraphs, MATTR1k) ~ author, data = data)
 (st <- model$residuals %>% t() %>% shapiro.test())
 (ma <- Manova(model, multivariate = T, type = c('III'), test = 'Wilks'))
-(mv_tab <- lm_to_manova(model))
-
+(mv_tab <- lm_to_anova(model, multivariate = T, type = c('III')))
 ```
 
 As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r mv_tab[2,4]`, `r mv_tab[2,5]`) = `r mv_tab[2,3]` ($p$ `r apa_pvalue(mv_tab[2,6])`) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`.
