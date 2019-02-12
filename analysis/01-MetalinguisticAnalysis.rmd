@@ -304,11 +304,11 @@ Any time a `lm()` is converted into a MANOVA, the `lm()` residules need to be ch
 ```{r, results = 'hold'}
 model <- lm(cbind(Words, Sentences, Paragraphs, MATTR1k) ~ author, data = data)
 (st <- model$residuals %>% t() %>% shapiro.test())
-(ma <- Manova(model, multivariate = T, type = c('III'), test = 'Wilks'))
-(mv_tab <- lm_to_anova(model, multivariate = T, type = c('III')))
+Manova(model, multivariate = T, type = c('III'), test = 'Wilks')
+mv_tab <- lm_to_anova(model, multivariate = T, type = c('III'))
 ```
 
-As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r mv_tab[2,4]`, `r mv_tab[2,5]`) = `r mv_tab[2,3]` ($p$ `r apa_pvalue(mv_tab[2,6])`) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`.
+As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r mv_tab[2,4]`, `r mv_tab[2,5]`) = `r round(mv_tab[2,3], 3)` ($p$ `r apa_pvalue(mv_tab[2,6])`) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`.
 Table \@ref(tab:univariate-results) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
 
 ```{r univariate-results, results = 'hold', echo = F}

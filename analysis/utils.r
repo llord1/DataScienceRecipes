@@ -51,7 +51,7 @@ apa_pvalue <- function(pv) {
   ifelse(
     pv < .001, '< .001',
     ifelse(
-      pv < .05, sprintf('= %.3f'),
+      pv < .05, sprintf('= %.3f', pv),
         '> .05'))
 } 
 
