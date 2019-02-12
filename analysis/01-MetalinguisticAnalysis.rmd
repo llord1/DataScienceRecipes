@@ -312,36 +312,37 @@ As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r m
 Table \@ref(tab:univariate-results) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
 
 ```{r univariate-results, results = 'hold', echo = F}
-# title <- 'The means, standard deviations, F values, degrees of freedom, p values, and effect sizes for the 4 variables analyzed.'
-# 
-# column_names <- c(
-#   sprintf('CD (N=%i) M(SD)', dba$CD$n[1]),
-#   sprintf('JA (N=%i) M(SD)', dba$JA$n[1]),
-#   sprintf('MT (N=%i) M(SD)', dba$MT$n[1]),
-#   'F', 'P', '$\eta^{2}$')
-# 
-# dba = describeBy(data, group = 'author')
-# s1 <- summary(aov(Words ~ author, data = data))
-# s2 <- summary(aov(Sentences ~ author, data = data))
-# s3 <- summary(aov(Paragraphs ~ author, data = data))
-# s4 <- summary(aov(MATTR1k ~ author, data = data))
-# 
-# univariate_results <-
-# cbind(
-#   sprintf('%.2f (%.2f)', dba$CD$mean[2:5], dba$CD$sd[2:5]),
-#   sprintf('%.2f (%.2f)', dba$JA$mean[2:5], dba$JA$sd[2:5]),
-#   sprintf('%.2f (%.2f)', dba$MT$mean[2:5], dba$MT$sd[2:5]),
-#   c(round(models$`Response Words`$fstatistic[1], 3),
-#     round(models$`Response Sentences`$fstatistic[1], 3),
-#     round(models$`Response Paragraphs`$fstatistic[1], 3),
-#     round(models$`Response MATTR1k`$fstatistic[1], 3)),
-# )
-# colnames(univariate_results) <- column_names
-# rownames(univariate_results) <- rownames(dba$CD)[2:5]
-# 
-# 
-# 
-# knitr::kable(univariate_results, booktabs = T, caption = title)
+title <- 'The means, standard deviations, F values, degrees of freedom, p values, and effect sizes for the 4 variables analyzed.'
+
+group_n = data %>% group_by(author) %>% count()
+column_names <- c(
+  sprintf('CD (N=%i) M(SD)', group_n$n[group_n$author == 'CD']),
+  sprintf('JA (N=%i) M(SD)', group_n$n[group_n$author == 'JA']),
+  sprintf('MT (N=%i) M(SD)', group_n$n[group_n$author == 'MT']),
+  'F', 'P', '$\\eta^{2}$')
+
+
+s1 <- lm_to_anova(lm(Words ~ author, data = data), type = c('III'))
+s2 <- lm_to_anova(lm(Sentences ~ author, data = data), type = c('III'))
+s3 <- lm_to_anova(lm(Paragraphs ~ author, data = data), type = c('III'))
+s4 <- lm_to_anova(lm(MATTR1k ~ author, data = data), type = c('III'))
+
+univariate_results <-
+cbind(
+  sprintf('%.2f (%.2f)', dba$CD$mean[2:5], dba$CD$sd[2:5]),
+  sprintf('%.2f (%.2f)', dba$JA$mean[2:5], dba$JA$sd[2:5]),
+  sprintf('%.2f (%.2f)', dba$MT$mean[2:5], dba$MT$sd[2:5]),
+  c(round(models$`Response Words`$fstatistic[1], 3),
+    round(models$`Response Sentences`$fstatistic[1], 3),
+    round(models$`Response Paragraphs`$fstatistic[1], 3),
+    round(models$`Response MATTR1k`$fstatistic[1], 3)),
+)
+colnames(univariate_results) <- column_names
+rownames(univariate_results) <- rownames(dba$CD)[2:5]
+
+
+
+knitr::kable(univariate_results, booktabs = T, caption = title)
 ```
 
 
