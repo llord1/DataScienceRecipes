@@ -1,5 +1,6 @@
 util_libraries = c('moments', 'nortest', 'car')
 invisible(lapply(util_libraries, require, character.only = TRUE))
+'%nin%' <- function(x,y)!('%in%'(x,y))
 
 #' algorithmly applies the uses the box-cox transform to make a skew of 0
 #' originaly from my personal stash of macros
@@ -88,8 +89,9 @@ test_univariate_normality <- function(data) {
 lm_to_anova <- function(model, multivariate = F, type = c('II')) {
   
   tests <- c('Pillai', 'Wilks', 'Hotelling-Lawley', 'Roy')
+  suppress <- c('(Intercept)', 'Residuals')
   outtests <- car:::print.Anova.mlm
-
+  
   body(outtests)[[16]] <- quote(invisible(tests))
   body(outtests)[[15]] <- NULL
   
@@ -100,8 +102,9 @@ lm_to_anova <- function(model, multivariate = F, type = c('II')) {
         type = type,
         multivariate = multivariate,
         test.statistic = test_name)
-    result <- outtests(result)
-    result <- result[row.names(result) != "(Intercept)",]
+    if('Anova.mlm' %in% class(result))
+      result <- outtests(result)
+    result <- result[row.names(result) %nin% suppress,]
     row.names(result) <- sprintf('%s %s', test_name, row.names(result))
     result
   }

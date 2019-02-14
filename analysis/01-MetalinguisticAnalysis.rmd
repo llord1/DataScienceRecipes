@@ -11,7 +11,7 @@ editor_options:
 rm(list = ls())
 options(scipen = 999)
 
-libraries <- c('dplyr', 'tidyr', 'ggpubr', 'mvnormtest', 'biotools', 'psych')
+libraries <- c('dplyr', 'tidyr', 'ggpubr', 'mvnormtest', 'biotools', 'psych', 'heplots')
 # if needed
 # install.packages(libraries)
 invisible(lapply(libraries, require, character.only = TRUE))
@@ -306,41 +306,45 @@ model <- lm(cbind(Words, Sentences, Paragraphs, MATTR1k) ~ author, data = data)
 (st <- model$residuals %>% t() %>% shapiro.test())
 Manova(model, multivariate = T, type = c('III'), test = 'Wilks')
 mv_tab <- lm_to_anova(model, multivariate = T, type = c('III'))
+mv_eta <- etasq(model)[[1]]
 ```
 
-As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r mv_tab[2,4]`, `r mv_tab[2,5]`) = `r round(mv_tab[2,3], 3)` ($p$ `r apa_pvalue(mv_tab[2,6])`) with reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`) and Effect size Partial $\eta^{2}$ = `r (1 - (0.0013273)^(1/min(3, 12)))`.
+As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r mv_tab[2,4]`, `r mv_tab[2,5]`) = `r round(mv_tab[2,3], 3)` ($p$ `r apa_pvalue(mv_tab[2,6])`) with a reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`) and an effect size of Partial $\eta^{2}$ = `r round(mv_eta, 3)`.
 Table \@ref(tab:univariate-results) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
 
 ```{r univariate-results, results = 'hold', echo = F}
 title <- 'The means, standard deviations, F values, degrees of freedom, p values, and effect sizes for the 4 variables analyzed.'
 
-group_n = data %>% group_by(author) %>% count()
+dba <- describeBy(data, group = 'author')
+
 column_names <- c(
-  sprintf('CD (N=%i) M(SD)', group_n$n[group_n$author == 'CD']),
-  sprintf('JA (N=%i) M(SD)', group_n$n[group_n$author == 'JA']),
-  sprintf('MT (N=%i) M(SD)', group_n$n[group_n$author == 'MT']),
+  sprintf('CD (N=%i) M(SD)', dba$CD$n[1]),
+  sprintf('JA (N=%i) M(SD)', dba$JA$n[1]),
+  sprintf('MT (N=%i) M(SD)', dba$MT$n[1]),
   'F', 'P', '$\\eta^{2}$')
 
+m1 <- lm(Words ~ author, data = data)
+m2 <- lm(Sentences ~ author, data = data)
+m3 <- lm(Paragraphs ~ author, data = data)
+m4 <- lm(MATTR1k ~ author, data = data)
+s1 <- lm_to_anova(m1, type = c('III'))
+s2 <- lm_to_anova(m2, type = c('III'))
+s3 <- lm_to_anova(m3, type = c('III'))
+s4 <- lm_to_anova(m4, type = c('III'))
 
-s1 <- lm_to_anova(lm(Words ~ author, data = data), type = c('III'))
-s2 <- lm_to_anova(lm(Sentences ~ author, data = data), type = c('III'))
-s3 <- lm_to_anova(lm(Paragraphs ~ author, data = data), type = c('III'))
-s4 <- lm_to_anova(lm(MATTR1k ~ author, data = data), type = c('III'))
+ex <- function(model) { etasq(model)[1,1] }
 
 univariate_results <-
 cbind(
   sprintf('%.2f (%.2f)', dba$CD$mean[2:5], dba$CD$sd[2:5]),
   sprintf('%.2f (%.2f)', dba$JA$mean[2:5], dba$JA$sd[2:5]),
   sprintf('%.2f (%.2f)', dba$MT$mean[2:5], dba$MT$sd[2:5]),
-  c(round(models$`Response Words`$fstatistic[1], 3),
-    round(models$`Response Sentences`$fstatistic[1], 3),
-    round(models$`Response Paragraphs`$fstatistic[1], 3),
-    round(models$`Response MATTR1k`$fstatistic[1], 3)),
+  round(c(s1[2,3], s2[2,3], s3[2,3], s4[2,3]), 3),
+  apa_pvalue(p.adjust(c(s1[2,4], s2[2,4], s3[2,4], s4[2,4]), method = 'bonferroni')),
+  round(c(ex(m1), ex(m2), ex(m3), ex(m4)), 3)
 )
 colnames(univariate_results) <- column_names
 rownames(univariate_results) <- rownames(dba$CD)[2:5]
-
-
 
 knitr::kable(univariate_results, booktabs = T, caption = title)
 ```
