@@ -20,7 +20,7 @@ Laboreiro et al. notes that while the Penn Treebank may have some issues, it is 
 
 This paper investigated several dependent variables.
 Overall document cadence was captured using mean words per sentence, mean sentances per paragraph, and mean paragraphs per document.
-Lexical diversity was captured using the both a normal type-token ratio as well as a moving average type-token ratio (MATTR) with a window size of 500 and 1000.
+Lexical diversity was captured using a moving average type-token ratio (MATTR) [@covington2010cutting] with a window size 1000.
 
 #### Basic
 
@@ -31,6 +31,12 @@ Two neiboring sentences are said to come from distinct paragraphs if they are se
 #### Type-token ratio
 
 A type-token ratio is simple to compute measure of word diversity inside of a single document [@hill2015real].
-However, it suffers from the need to standardise on document length [@covington2008moving;@kettunen2014can;@jarvis2002short;@richards1987type].
-A moving average type-token ratio helps address these issues [@covington2008moving;@kettunen2014can;].
-The normal type-token ratio is also captured to faciliate comparesons between works that do not use MATTR.
+However, it suffers from the need to standardise on document length [@covington2010cutting;@kettunen2014can;@jarvis2002short;@richards1987type].
+A moving average type-token ratio helps address these issues [@covington2010cutting;@kettunen2014can].
+
+#### Statistical analyses
+
+The measures were extracted from the corpus then analysied using a multivariate analysis of variance (MANOVA) approach.
+The total number of documents in the corpus was N = `r dim(meta$metadata)[1]`.
+$\alpha$ and $\beta$ were left at their traditional levels.
+

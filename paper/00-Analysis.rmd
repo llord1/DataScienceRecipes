@@ -7,20 +7,24 @@ editor_options:
 library(knitr)
 
 libraries <- c('knitr')
+keywords <- c()
 
 meta <- new.env()
 file <- knit('../analysis/01-MetalinguisticAnalysis.rmd', envir = meta)
 file.remove(file)
+keywords <- c(keywords, 'Metalinguistic Analysis')
 libraries <- c(libraries, meta$libraries)
 
 profile <- new.env()
 file <- knit('../analysis/02-ProfileAnalysis.rmd', envir = profile)
 file.remove(file)
+keywords <- c(keywords, 'Profile Analysis')
 libraries <- c(libraries, profile$libraries)
 
 rdd <- new.env()
 file <- knit('../analysis/03-RegressionDiscontinuityDesign.rmd', envir = rdd)
 file.remove(file)
+keywords <- c(keywords, 'Regression Discontinuity Design')
 libraries <- c(libraries, rdd$libraries)
 
 librarycite <- paste(sprintf("@rpackage%s", unique(libraries)), collapse = ";")

@@ -73,10 +73,10 @@ test_univariate_normality <- function(data) {
     c(t2s(t1), t2s(t2), t2s(t3), t2s(t4), t2s(t5))
   }
   
-  columns <- colnames(dv)
+  columns <- colnames(data)
   cl <- length(columns)
   tmp <- vector(mode="list", length = cl)
-  for(i in 1:cl) { tmp[[i]] <- univariate(dv, columns[i]) }
+  for(i in 1:cl) { tmp[[i]] <- univariate(data, columns[i]) }
   
   normality <- do.call(rbind, tmp)
   rownames(normality) <- columns
