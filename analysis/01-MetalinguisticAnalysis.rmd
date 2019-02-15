@@ -236,9 +236,9 @@ Our cadence measures consistently reject the null hypothesis of normality.
 Idealy we would like all 5 tests to agree (all p > .05), but on real data, that is rare.
 Furtheremore, the results from the multivariate normality test reject the null hypothesis, so we find evidence that the distribution is not jointly normal ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`).
 So we need to transform the values.
-Based on Table \@ref(tab:univariate-normality) we are pretty sure we need to adjust them all.
+Based on the below table we are pretty sure we need to adjust them all.
 
-```{r univariate-normality, results = 'hold', echo = F}
+```{r, results = 'hold', echo = F}
 knitr::kable(normality, booktabs = TRUE, caption = "Univariate Normality")
 ```
 
@@ -252,11 +252,11 @@ transformed_normality <- test_univariate_normality(dv)
 (tst = dv %>% t() %>% shapiro.test())
 ```
 
-As we can see from Table \@ref(tab:transformed-univariate-normality), after the Box-Cox transform, all univariate tests across all measures agree on normality.
+As we can see from the below table, after the Box-Cox transform, all univariate tests across all measures agree on normality.
 After the transform, while we still have a similar p-value ($p$ `r apa_pvalue(tst$p.value)`) to the untransformed multivariate result, the $W$ (the important part) is vastly improved ($W$ = `r round(unname(st$statistic), 3)` to $W$ = `r round(unname(tst$statistic), 3)`), though still not quite in the .90+ range we would ideally like to see.
 Based on both the univariate and multivariate results, there is sufficent evedence to proceed _with causion_.
 
-```{r transformed-univariate-normality, results = 'hold', echo = F}
+```{r, results = 'hold', echo = F}
 knitr::kable(transformed_normality, booktabs = TRUE, caption = "Univariate Normality with adjusted Box Cox skew 0")
 ```
 
@@ -310,9 +310,9 @@ mv_eta <- etasq(model)[[1]]
 ```
 
 As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r mv_tab[2,4]`, `r mv_tab[2,5]`) = `r round(mv_tab[2,3], 3)` ($p$ `r apa_pvalue(mv_tab[2,6])`) with a reasonable model fit ($W$ = `r round(unname(st$statistic), 3)`, $p$ `r apa_pvalue(st$p.value)`) and an effect size of Partial $\eta^{2}$ = `r round(mv_eta, 3)`.
-Table \@ref(tab:univariate-results) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
+The below table presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
 
-```{r univariate-results, results = 'hold', echo = F}
+```{r, results = 'hold', echo = F}
 title <- 'The means, standard deviations, F values, degrees of freedom, p values, and effect sizes for the 4 variables analyzed.'
 
 dba <- describeBy(data, group = 'author')
