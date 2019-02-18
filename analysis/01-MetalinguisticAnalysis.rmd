@@ -313,7 +313,7 @@ As can be seen from Wilks, _author_ is jointly statisticaly significant $F$(`r m
 The below table presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
 
 ```{r, results = 'hold', echo = F}
-title <- 'The means, standard deviations, F values, degrees of freedom, p values, and effect sizes for the 4 variables analyzed.'
+univariate_results_title <- 'The means, standard deviations, F values, degrees of freedom, p values, and effect sizes for the 4 variables analyzed.'
 
 dba <- describeBy(data, group = 'author')
 
@@ -346,7 +346,7 @@ cbind(
 colnames(univariate_results) <- column_names
 rownames(univariate_results) <- rownames(dba$CD)[2:5]
 
-knitr::kable(univariate_results, booktabs = T, caption = title)
+knitr::kable(univariate_results, booktabs = T, caption = univariate_results_title)
 ```
 
 
