@@ -19,24 +19,24 @@ Laboreiro et al. notes that while the Penn Treebank may have some issues, it is 
 ### Linguistic variables analyzed
 
 This paper investigated several dependent variables.
-Overall document cadence was captured using mean words per sentence, mean sentances per paragraph, and mean paragraphs per document.
+Overall document cadence was captured using mean words per sentence, mean sentences per paragraph, and mean paragraphs per document.
 Lexical diversity was captured using a moving average type-token ratio (MATTR) [@covington2010cutting] with a window size 1000.
 
 #### Basic
 
-What collection of characters are recognised as distinct from one another may differ depending on the research at hand.
-In order to maxmize reproduceability, this paper adopts the defnitions of words and sentences presented by tokenizers listed above [@kiss2006unsupervised;@marrese2014novel].
-Two neiboring sentences are said to come from distinct paragraphs if they are seperated by at least one blank line.
+What collection of characters are recognized as distinct from one another may differ depending on the research at hand.
+In order to maximize reproducibility, this paper adopts the definitions of words and sentences presented by tokenizers listed above [@kiss2006unsupervised;@marrese2014novel].
+Two neighboring sentences are said to come from distinct paragraphs if they are separated by at least one blank line.
 
 #### Type-token ratio
 
 A type-token ratio is simple to compute measure of word diversity inside of a single document [@hill2015real].
-However, it suffers from the need to standardise on document length [@covington2010cutting;@kettunen2014can;@jarvis2002short;@richards1987type].
+However, it suffers from the need to standardize on document length [@covington2010cutting;@kettunen2014can;@jarvis2002short;@richards1987type].
 A moving average type-token ratio helps address these issues [@covington2010cutting;@kettunen2014can].
 
 #### Statistical analyses
 
-The measures were extracted from the corpus then analysied using a multivariate analysis of variance (MANOVA) approach.
+The measures were extracted from the corpus then analysised using a multivariate analysis of variance (MANOVA) approach.
 The total number of documents in the corpus was N = `r dim(meta$metadata)[1]`.
 $\alpha$ and $\beta$ were left at their traditional levels.
 

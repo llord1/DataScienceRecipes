@@ -1,11 +1,23 @@
 ## Metalinguistic Analysis
 
-The MANOVA that examined the difference among the 4 variables of intrest found the joint distrobution to have a statisticaly significant effect:
+The MANOVA that examined the difference among the four variables of interest found the joint distribution to have a statistically significant effect:
 $F$(`r meta$mv_tab[2,4]`, `r meta$mv_tab[2,5]`) = `r round(meta$mv_tab[2,3], 3)` ($p$ `r apa_pvalue(meta$mv_tab[2,6])`) with an effect size of Partial $\eta^{2}$ = `r round(meta$mv_eta, 3)`.
 Table \@ref(tab:metaunivariateresults) presents the means, standard deviations, and follow-up univariate ANOVA Bonferroni adjusted results on the 4 variables.
 
-The subsequent univariate ANOVAs on the 4 variables identified all 4 variables that significantly discriminated between groups. While all the differences _are_ statisticaly significant, only Paragraphs and MATTR1k represent a practical level of signifiance that a human might notice without macheine assistance.
+The subsequent univariate ANOVAs on the four variables identified all four variables as significantly discriminating between the groups.
+While all the differences _are_ statistically significant, only Paragraphs and MATTR1k represent a practical level of significance that a human might notice without machine assistance.
 
 ```{r metaunivariateresults, echo = F}
-knitr::kable(meta$univariate_results, 'latex', booktabs = T, caption = meta$univariate_results_title)
+cn <- colnames(meta$univariate_results)
+cn[1:3] <- sub(' M(SD)', '', cn[1:3], fixed = T)
+colnames(meta$univariate_results) <- cn
+
+kable(
+  meta$univariate_results,
+  'latex',
+  booktabs = T,
+  escape = F,
+  caption = meta$univariate_results_title) %>%
+  kable_styling() %>%
+  add_header_above(c(' ', 'M(SD)' = 3, ' ' = 3))
 ```

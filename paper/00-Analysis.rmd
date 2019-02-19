@@ -5,6 +5,7 @@ editor_options:
 
 ```{r, analysis, include = F, fig.keep = 'none'}
 library(knitr)
+library(kableExtra)
 
 libraries <- c('knitr', 'kableExtra')
 keywords <- c()
