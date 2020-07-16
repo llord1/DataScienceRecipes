@@ -1,0 +1,1099 @@
+@article{gardner1986confidence,
+  title={Confidence intervals rather than P values: estimation rather than hypothesis testing.},
+  author={Gardner, Martin J and Altman, Douglas G},
+  journal={Br Med J (Clin Res Ed)},
+  volume={292},
+  number={6522},
+  pages={746--750},
+  year={1986},
+  publisher={British Medical Journal Publishing Group}
+}
+
+@article{hubbard2008p,
+  title={Why P values are not a useful measure of evidence in statistical significance testing},
+  author={Hubbard, Raymond and Lindsay, R Murray},
+  journal={Theory \& Psychology},
+  volume={18},
+  number={1},
+  pages={69--88},
+  year={2008},
+  publisher={Sage Publications Sage UK: London, England}
+}
+
+@article{savalei2015call,
+  title={Is the call to abandon p-values the red herring of the replicability crisis?},
+  author={Savalei, Victoria and Dunn, Elizabeth},
+  journal={Frontiers in psychology},
+  volume={6},
+  pages={245},
+  year={2015},
+  publisher={Frontiers}
+}
+
+@article{hubbard2013rise,
+  title={The rise of statistical significance testing in public administration research and why this is a mistake},
+  author={Hubbard, Raymond and Meyer, C Kenneth},
+  journal={Journal of Business and Behavioral Sciences},
+  volume={25},
+  number={1},
+  pages={4},
+  year={2013},
+  publisher={American Society of Business and Behavioral Sciences}
+}
+
+@article{hubbard2000historical,
+  title={The historical growth of statistical significance testing in psychology—And its future prospects.},
+  author={Hubbard, Raymond and Ryan, Patricia A},
+  journal={Educational and Psychological Measurement},
+  year={2000},
+  publisher={Sage Publications}
+}
+
+
+@article{blume2019introduction,
+  title={An Introduction to Second-Generation p-Values},
+  author={Blume, Jeffrey D and Greevy, Robert A and Welty, Valerie F and Smith, Jeffrey R and Dupont, William D},
+  journal={The American Statistician},
+  volume={73},
+  number={sup1},
+  pages={157--167},
+  year={2019},
+  publisher={Taylor \& Francis}
+}
+
+@article{blume2018second,
+  title={Second-generation p-values: Improved rigor, reproducibility, \& transparency in statistical analyses},
+  author={Blume, Jeffrey D and McGowan, Lucy D’Agostino and Dupont, William D and Greevy Jr, Robert A},
+  journal={PLoS One},
+  volume={13},
+  number={3},
+  pages={e0188299},
+  year={2018},
+  publisher={Public Library of Science}
+}
+
+@article{lakens2018equivalence,
+  title={Equivalence testing and the second generation P-value},
+  author={Lakens, Dani{\"e}l and Delacre, Marie},
+  year={2018},
+  publisher={PsyArXiv}
+}
+
+@article{lakens2019practical,
+  title={The practical alternative to the p-value is the correctly used p-value},
+  author={Lakens, Daniel},
+  year={2019},
+  publisher={PsyArXiv}
+}
+
+
+
+@article{anderson2000null,
+  title={Null hypothesis testing: problems, prevalence, and an alternative},
+  author={Anderson, David R and Burnham, Kenneth P and Thompson, William L},
+  journal={The journal of wildlife management},
+  pages={912--923},
+  year={2000},
+  publisher={JSTOR}
+}
+
+@article{dixon2003p,
+  title={The p-value fallacy and how to avoid it.},
+  author={Dixon, Peter},
+  journal={Canadian Journal of Experimental Psychology/Revue canadienne de psychologie exp{\'e}rimentale},
+  volume={57},
+  number={3},
+  pages={189},
+  year={2003},
+  publisher={Canadian Psychological Association}
+}
+
+@article{nurminen1997statistical,
+  title={Statistical significance—a misconstrued notion in medical research},
+  author={Nurminen, Markku},
+  journal={Scandinavian journal of work, environment \& health},
+  pages={232--235},
+  year={1997},
+  publisher={JSTOR}
+}
+
+@article{halloran2006lies,
+  title={Lies, damn lies, and statistics: the perils of the P value},
+  author={Halloran, PF and Reeve, J and Kaplan, B},
+  journal={American Journal of transplantation},
+  volume={6},
+  number={1},
+  pages={10--11},
+  year={2006},
+  publisher={Wiley Online Library}
+}
+
+@inproceedings{Goodman,
+  title={A dirty dozen: twelve p-value misconceptions},
+  author={Goodman, Steven},
+  booktitle={Seminars in hematology},
+  volume={45},
+  number={3},
+  pages={135--140},
+  year={2008},
+  organization={Elsevier}
+}
+
+@article{nickerson2000null,
+  title={Null hypothesis significance testing: a review of an old and continuing controversy.},
+  author={Nickerson, Raymond S},
+  journal={Psychological methods},
+  volume={5},
+  number={2},
+  pages={241},
+  year={2000},
+  publisher={American Psychological Association}
+}
+
+@article{gigerenzer2004mindless,
+  title={Mindless statistics},
+  author={Gigerenzer, Gerd},
+  journal={The Journal of Socio-Economics},
+  volume={33},
+  number={5},
+  pages={587--606},
+  year={2004},
+  publisher={Elsevier}
+}
+
+
+@article{carver1978case,
+  title={The case against statistical significance testing},
+  author={Carver, Ronald},
+  journal={Harvard Educational Review},
+  volume={48},
+  number={3},
+  pages={378--399},
+  year={1978},
+  publisher={Harvard Education Publishing Group}
+}
+
+
+@article{lecoutre2003even,
+  title={Even statisticians are not immune to misinterpretations of Null Hypothesis Significance Tests},
+  author={Lecoutre, Marie-Paule and Poitevineau, Jacques and Lecoutre, Bruno},
+  journal={International Journal of Psychology},
+  volume={38},
+  number={1},
+  pages={37--45},
+  year={2003},
+  publisher={Wiley Online Library}
+}
+
+
+@article{ozgurusing,
+  title={Using Statistics Software Packages for Teaching Purposes: R and Python},
+  author={Ozgur, Ceyhun and Jha, Sanjeev and Shen, Yiming}
+}
+@article{drude2003language,
+  title={Language vitality and endangerment},
+  author={Drude, Sebastian and others},
+  year={2003},
+  publisher={UNESCO}
+}
+
+@inproceedings{stajano2000python,
+  title={Python in education: Raising a generation of native speakers},
+  author={Stajano, Frank},
+  booktitle={Proceedings of 8 th International Python Conference},
+  pages={2000--01},
+  year={2000}
+}
+@inproceedings{grandell2006complicate,
+  title={Why complicate things?: introducing programming in high school using Python},
+  author={Grandell, Linda and Peltom{\"a}ki, Mia and Back, Ralph-Johan and Salakoski, Tapio},
+  booktitle={Proceedings of the 8th Australasian Conference on Computing Education-Volume 52},
+  pages={71--80},
+  year={2006},
+  organization={Australian Computer Society, Inc.}
+}
+
+@inproceedings{hromkovivc2016combining,
+  title={Combining the power of python with the simplicity of logo for a sustainable computer science education},
+  author={Hromkovi{\v{c}}, Juraj and Kohn, Tobias and Komm, Dennis and Serafini, Giovanni},
+  booktitle={International Conference on Informatics in Schools: Situation, Evolution, and Perspectives},
+  pages={155--166},
+  year={2016},
+  organization={Springer}
+}
+
+@book{gries2017practical,
+  title={Practical programming: an introduction to computer science using Python 3.6},
+  author={Gries, Paul and Campbell, Jennifer and Montojo, Jason},
+  year={2017},
+  publisher={Pragmatic Bookshelf}
+}
+
+@article{ramacciotti2019language,
+  title={Language, learning, and development: perspectives on language acquisition and brain function},
+  author={Ramacciotti, Mirela and Eccles, Christine},
+  journal={EntreL{\'\i}nguas},
+  volume={5},
+  number={1},
+  pages={104--120},
+  year={2019},
+  publisher={Universidade Estadual Paulista J{\'u}lio de Mesquita Filho}
+}
+
+@article{schmidt1996programming,
+  title={Programming language semantics},
+  author={Schmidt, David A},
+  journal={ACM Computing Surveys (CSUR)},
+  volume={28},
+  number={1},
+  pages={265--267},
+  year={1996},
+  publisher={ACM New York, NY, USA}
+}
+@article{greenhill2010shape,
+  title={The shape and tempo of language evolution},
+  author={Greenhill, Simon J and Atkinson, Quentin D and Meade, Andrew and Gray, Russell D},
+  journal={Proceedings of the Royal Society B: Biological Sciences},
+  volume={277},
+  number={1693},
+  pages={2443--2450},
+  year={2010},
+  publisher={The Royal Society}
+}
+
+@misc{speakinggreek,
+	title = {Dominant languages of {Rome} were {Latin} and {Greek} « {IMPERIUM} {ROMANUM}},
+	url = {https://www.imperiumromanum.edu.pl/en/curiosities/dominant-languages-of-rome-were-latin-and-greek/},
+	abstract = {The dominant languages of the Roman Empire were Latin and Greek. Latin appeared as a "language of rulers" and was widespread in the Empire, especially in the western provinces in the army and the courts.},
+	language = {en-US},
+	journal = {IMPERIUM ROMANUM}
+}
+
+@article{schmid2018predictors,
+  title={Predictors of language dominance: an integrated analysis of first language attrition and second language acquisition in late bilinguals},
+  author={Schmid, Monika S and Yilmaz, Gulsen},
+  journal={Frontiers in psychology},
+  volume={9},
+  pages={1306},
+  year={2018},
+  publisher={Frontiers}
+}
+
+
+@article{hemandez-chavez_language_1978,
+	title = {Language {Dominance} and {Proficiency} {Testing}: {Some} {General} {Considerations}},
+	volume = {3},
+	issn = {0885-5072},
+	shorttitle = {Language {Dominance} and {Proficiency} {Testing}},
+	url = {https://doi.org/10.1080/08855072.1978.10668343},
+	doi = {10.1080/08855072.1978.10668343}
+}
+	
+
+@misc{incrediblegrowth,
+	title = {The incredible growth of {Python} {\textbar} {Zibtek} {Blog}},
+	url = {https://www.zibtek.com/blog/the-incredible-growth-of-python/},
+	language = {en},
+	journal = {Custom Software Development Insights {\textbar} Zibtek Blog},
+	month = oct,
+	year = {2019}
+}
+
+
+@misc{robinson_why_2017,
+	title = {Why is {Python} {Growing} {So} {Quickly}?},
+	url = {https://stackoverflow.blog/2017/09/14/python-growing-quickly/},
+	abstract = {We have something fun for ya. Our latest podcast episode is out!},
+	language = {en-US},
+	journal = {Stack Overflow Blog},
+	author = {Robinson, David},
+	month = sep,
+	year = {2017}
+}
+
+@misc{InteractiveIEEESpectrum,
+	title = {Interactive: {The} {Top} {Programming} {Languages} 2019 - {IEEE} {Spectrum}},
+	shorttitle = {Interactive},
+	url = {https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019},
+	language = {en},
+	journal = {IEEE Spectrum: Technology, Engineering, and Science News},
+	author = {Cass, Stephen and GMT, Parthasaradhi BulusuPosted 06 Sep 2019 {\textbar} 16:30}
+}
+
+@misc{TIOBEIndex,
+	title = {index {\textbar} {TIOBE} - {The} {Software} {Quality} {Company}},
+	url = {https://www.tiobe.com/tiobe-index/}
+}
+
+@misc{Octoversereport,
+	title = {The {State} of the {Octoverse}},
+	url = {https://octoverse.github.com/},
+	abstract = {The State of the Octoverse celebrates a year of building across teams, time zones, and millions of merged pull requests.},
+	language = {en-gb},
+	journal = {The State of the Octoverse}
+}
+@misc{TLynn,
+	title = {How social media breathes life into the {Irish} language {\textbar} {Teresa} {Lynn} {\textbar} {TEDxFulbrightDublin}},
+	url = {https://www.youtube.com/watch?v=LM3ISST2eg8&feature=youtu.be},
+	abstract = {In this talk, Dr. Teresa Lynn discusses the use of the Irish language on Twitter and the importance of social media for minority languages.}
+}
+
+@misc{indigenous_tweet,
+	title = {Indigenous {Tweets}},
+	url = {http://indigenoustweets.com/}
+}
+
+@misc{pandastack,
+	title = {Stack {Overflow} {Trends}},
+	url = {https://insights.stackoverflow.com/trends/?tags=pandas%2Cdjango&__hstc=188987252.e3d8513925b9f2c924a36178a0c02326.1579359912235.1579359912235.1579385722065.2&__hssc=188987252.2.1579385722065&__hsfp=645916085},
+	abstract = {Use Stack Overflow Insights and get information required to understand, reach, and attract developers.Improve tech hiring, recruiting, developer marketing, and and planning initiatives.}
+}
+@inproceedings{lord_survival_2018,
+	title = {Survival {Analysis} within {Stack} {Overflow}: {Python} and {R}},
+	shorttitle = {Survival {Analysis} within {Stack} {Overflow}},
+	doi = {10.1109/Innovate-Data.2018.00015},
+	abstract = {The following topics are dealt with: Big Data; learning (artificial intelligence); data mining; mobile computing; telecommunication security; cryptography; Internet of Things; public key cryptography; oceanographic techniques; data visualisation.},
+	booktitle = {2018 4th {International} {Conference} on {Big} {Data} {Innovations} and {Applications} ({Innovate}-{Data})},
+	author = {Lord, Laurel and Sell, John and Bagirov, Feyzi and Newman, Mark},
+	month = aug,
+	year = {2018},
+	note = {ISSN: null},
+	keywords = {Big Data, Companies, Internet of Things, Programming profession, Python, R, Stack Overflow, Survival Analysis, Time factors, Tools, cryptography, data mining, data visualisation, learning (artificial intelligence), mobile computing, oceanographic techniques, public key cryptography, telecommunication security},
+	pages = {51--59}
+}
+
+
+@misc{learneroo,
+	title = {The {Different} {Programming} {Languages} - {Learneroo}},
+	url = {https://www.learneroo.com/modules/12/nodes/94}
+}
+
+@misc{python_2019,
+	title = {Python: {Most} {Studied} {Language} {Among} {Developers}},
+	shorttitle = {Python},
+	url = {https://insights.dice.com/2019/07/01/python-most-studied-language-among-developers/},
+	abstract = {Python is the most-studied language among developers, with 27 percent of respondents to a recent JetBrains survey saying they’ve either started or},
+	language = {en-US},
+	journal = {Dice Insights},
+	author = {KolakowskiJuly 1, Nick and Read, 20193 Min},
+	month = jul,
+	year = {2019}
+}
+
+@misc{stackoverflowabout,
+	title = {About},
+	url = {https://stackoverflow.com/company},
+	abstract = {Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge, and build their careers.},
+	journal = {Stack Overflow}
+}
+
+
+@misc{Forbestop,
+	title = {The 10 {Technical} {Skills} {With} {Explosive} {Growth} {In} {Job} {Demand}},
+	url = {https://www.forbes.com/sites/jeffkauflin/2017/01/08/the-10-technical-skills-with-explosive-growth-in-job-demand/#25c9864e4f5c}
+}
+@misc{gclass,
+	title = {Google for {Education}},
+	url = {https://developers.google.com/edu},
+	abstract = {Build solutions for educators and students.},
+	language = {en},
+	journal = {Google Developers}
+}
+
+@misc{google_python,
+	title = {Google {Releases} {New} {IT} {Certificate} {\textbar} {Inside} {Higher} {Ed}},
+	url = {https://www.insidehighered.com/quicktakes/2020/01/17/google-releases-new-it-certificate},
+	abstract = {Google’s professional certificate in IT automation with Python became available this week for enrollment. The company launched a previous certificate in IT support in 2018. The new certificate appears to be a similar structure but different subject matter. “Python is now the most in-demand programming language, and more than 530,000 U.S. jobs, including 75,000 entry-level jobs, require Python proficiency,” the company said in a news release. “With this new certificate, you can learn Python, Git and IT automation within six months.” The first IT certificate the company released, which participants could achieve by completing five online courses hosted on Coursera, was meant to prepare students for jobs in information technology. It currently costs \$49 per month, and the company estimates it takes about six to eight months. Over 100,000 people, the company said, have enrolled in the courses, and 84 percent of completers report a career impact. The online courses for that certificate are being offered at numerous community colleges, aided by grant money from Jobs for the Future, a workforce nonprofit. The company plans to expand the number of community colleges offering the courses to 100 by the end of 2020. Google is one of a growing number big corporate players to introduce their own credentials into the postsecondary education and training ecosystem.},
+	language = {en}
+}
+
+
+@article{bedore_measure_2012,
+	title = {The measure matters: {Language} dominance profiles across measures in {Spanish}–{English} bilingual children},
+	volume = {15},
+	issn = {1366-7289},
+	shorttitle = {The measure matters},
+	url = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3615884/},
+	doi = {10.1017/S1366728912000090},
+	number = {3},
+	journal = {Bilingualism (Cambridge, England)},
+	author = {BEDORE, LISA M. and PEÑA, ELIZABETH D. and SUMMERS, CONNIE L. and BOERGER, KARIN M. and RESENDIZ, MARIA D. and GREENE, KAI and BOHMAN, THOMAS M. and GILLAM, RONALD B.},
+	month = jul,
+	year = {2012},
+	pmid = {23565049},
+	pmcid = {PMC3615884},
+	pages = {616--629}
+}
+
+
+@article{shen_interactive_2014,
+	title = {Interactive notebooks: {Sharing} the code},
+	volume = {515},
+	shorttitle = {Interactive notebooks},
+	url = {http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261},
+	doi = {10.1038/515151a},
+	abstract = {The free IPython notebook makes data analysis easier to record, understand and reproduce.},
+	language = {en},
+	number = {7525},
+	journal = {Nature News},
+	author = {Shen, Helen},
+	month = nov,
+	year = {2014},
+	pages = {151}
+}
+
+
+@misc{samepython,
+	title = {Are all languages basically the same?},
+	url = {https://softwareengineering.stackexchange.com/questions/155239/are-all-languages-basically-the-same/155243},
+	journal = {Software Engineering Stack Exchange}
+}
+
+@misc{stacktrends,
+	title = {How {Programming} {Languages} {Differ} {Around} the {World}},
+	url = {https://insights.dice.com/2017/09/01/programming-languages-differ-around-world/},
+	abstract = {Do tech pros in developing countries use the same programming languages and technologies as their colleagues in places like the United States?},
+	language = {en-US},
+	journal = {Dice Insights},
+	author = {KolakowskiSeptember 1, Nick and Read, 20173 Min},
+	month = sep,
+	year = {2017}
+}
+
+@inproceedings{hayes1995turing,
+  title={Turing test considered harmful},
+  author={Hayes, Patrick and Ford, Kenneth},
+  booktitle={IJCAI (1)},
+  pages={972--977},
+  year={1995}
+}
+
+
+
+@misc{MIT,
+	title = {{AI} will disrupt white-collar workers the most, predicts a new report},
+	url = {https://www.technologyreview.com/f/614739/ai-will-disrupt-white-collar-workers-the-most-predicts-a-new-report/},
+	abstract = {A surprise finding: Conventional wisdom says robotics, artificial intelligence, and automation will radically alter work for blue-collar truckers and factory workers.},
+	language = {en-US},
+	journal = {MIT Technology Review}
+}
+
+@misc{ForbesIBM,
+	title = {{IBM} {Predicts} {Demand} {For} {Data} {Scientists} {Will} {Soar} 28\% {By} 2020},
+	url = {https://www.forbes.com/sites/louiscolumbus/2017/05/13/ibm-predicts-demand-for-data-scientists-will-soar-28-by-2020/},
+	abstract = {Jobs requiring machine learning skills are paying an average of \$114,000.  Data scientist jobs pay an average of \$105,000 and advertised data engineering jobs pay an average of \$117,000.  59\% of all Data Science and Analytics job demand is in Finance and Insurance, Professional Services, and IT.},
+	language = {en},
+	journal = {Forbes},
+	author = {Columbus, Louis}
+}
+
+@misc{towardsjobs,
+	title = {Data {Science} {Jobs} with their salaries},
+	url = {https://towardsdatascience.com/data-science-jobs-with-their-salaries-171acd3bf9be},
+	abstract = {Top Data Science Jobs with their salaries and Job Roles},
+	language = {en},
+	journal = {Medium},
+	author = {Gour, Rinu},
+	month = jul,
+	year = {2019}
+}
+
+@misc{mathjobs,
+	title = {Mathematicians and {Statisticians} : {Occupational} {Outlook} {Handbook}: : {U}.{S}. {Bureau} of {Labor} {Statistics}},
+	shorttitle = {Mathematicians and {Statisticians}},
+	url = {https://www.bls.gov/ooh/math/mathematicians-and-statisticians.htm},
+	abstract = {Mathematicians and statisticians analyze data and apply mathematical and statistical techniques to help solve problems.},
+	language = {en-us}
+}
+
+@misc{blsjobs,
+	title = {Computer and {Information} {Research} {Scientists} : {Occupational} {Outlook} {Handbook}: : {U}.{S}. {Bureau} of {Labor} {Statistics}},
+	shorttitle = {Computer and {Information} {Research} {Scientists}},
+	url = {https://www.bls.gov/ooh/computer-and-information-technology/computer-and-information-research-scientists.htm#tab-1},
+	abstract = {Computer and information research scientists invent and design new approaches to computing technology and find innovative uses for existing technology.},
+	language = {en-us}
+}
+
+@misc{promisingjob,
+	title = {How {Promising} is the {Data} {Science} {Job} {Outlook}?},
+	url = {https://www.datasciencedegreeprograms.net/faq/job-outlook-data-scientists/},
+	abstract = {For one considering pursuing a degree or entering the field, the data science job outlook is an important factor to consider. This article ponders the different factors that determine the outlook for this career field.},
+	language = {en-US},
+	journal = {Data Science Degree Programs Guide}
+}
+
+@misc{Terminator,
+	type = {Text},
+	title = {Deus ex {Machina}: {AI} {Apocalypticism} in {Terminator}: {The} {Sarah} {Connor} {Chronicles}},
+	shorttitle = {Deus ex {Machina}},
+	url = {https://www.ingentaconnect.com/content/intellect/jptv/2014/00000002/00000001/art00001},
+	language = {en},
+	author = {Bennett, Eve},
+	month = apr,
+	year = {2014},
+	doi = {info:doi/10.1386/jptv.2.1.3_1}
+}
+
+@misc{faithproquest,
+	title = {At the frontiers of faith and science: {Media} framing of stem cell research - {ProQuest}},
+	shorttitle = {At the frontiers of faith and science},
+	url = {https://search.proquest.com/openview/b54aff01cd4332978dc4b2b35d498435/1?pq-origsite=gscholar&cbl=18750&diss=y},
+	language = {en}
+}
+
+@article{dreshfield_federal_2012,
+	title = {Federal {Regulation} of {Emerging} {Technologies} and {Its} {Implications} for {Transhumanist} {Applications} of {NBIC} {Technologies}},
+	url = {https://scholarship.claremont.edu/cmc_theses/538},
+	journal = {CMC Senior Theses},
+	author = {Dreshfield, David},
+	month = jan,
+	year = {2012}
+}
+
+@article{godwalkburz,
+	title = {‘{A} new god will walk’: {Shakespeare}, the {Renaissance}, and the birth of the posthuman in {Westworld}},
+	volume = {100},
+	issn = {0184-7678},
+	shorttitle = {‘{A} new god will walk’},
+	url = {https://doi.org/10.1177/0184767819864361},
+	doi = {10.1177/0184767819864361},
+	abstract = {Westworld, a highly acclaimed TV series by HBO, can boast a whole wealth of references to canonical texts, famous works of art and cultural icons. I would argue that the series alludes to numerous Renaissance works in order to address the crises of humanity in the digital age. The aim of this article is to investigate the parallels between the ‘brave new world’ of the early modern period and the postmodern period, both from which the series draws inspiration. I wish to discuss the functions of Shakespearean and other early modern references in the context of a dystopian vision of the fall of man and the emergence of a new race.},
+	language = {en},
+	number = {1},
+	journal = {Cahiers Élisabéthains},
+	author = {Burzyńska, Katarzyna},
+	month = nov,
+	year = {2019},
+	keywords = {Shakespeare on screen, TV series, Westworld, adaptation, appropriation, posthumanism},
+	pages = {6--23}
+}
+
+@article{fromknowledgeDonovan,
+	title = {From {Knowledge} {Economy} to {Automation} {Anxiety}: {A} {Growth} {Regime} in {Crisis}?},
+	volume = {0},
+	issn = {1356-3467},
+	shorttitle = {From {Knowledge} {Economy} to {Automation} {Anxiety}},
+	url = {https://doi.org/10.1080/13563467.2019.1590326},
+	doi = {10.1080/13563467.2019.1590326},
+	number = {0},
+	journal = {New Political Economy},
+	author = {O’Donovan, Nick},
+	month = mar,
+	year = {2019},
+	keywords = {Knowledge economy, New Labour, automation, globalisation, growth regimes},
+	pages = {1--19}
+}
+
+@misc{AIsingularity,
+	title = {{AI}, singularity, and machine learning explained in 5 minutes},
+	url = {https://e27.co/ai-singularity-machine-learning-explained-5-minutes-20180725/},
+	abstract = {Technology will cause a shift in the workforce and allow us to focus on higher value tasks such as creative thinking, strategy, and problem solving},
+	language = {en},
+	journal = {e27}
+}
+
+@incollection{OGtTuring,
+	address = {Dordrecht},
+	title = {Computing {Machinery} and {Intelligence}},
+	isbn = {9781402067105},
+	url = {https://doi.org/10.1007/978-1-4020-6710-5_3},
+	abstract = {I propose to consider the question, “Can machines think?” This should begin with 	        language = {en},
+	booktitle = {Parsing the {Turing} {Test}: {Philosophical} and {Methodological} {Issues} in the {Quest} for the {Thinking} {Computer}},
+	publisher = {Springer Netherlands},
+	author = {Turing, Alan M.},
+	editor = {Epstein, Robert and Roberts, Gary and Beber, Grace},
+	year = {2009},
+	doi = {10.1007/978-1-4020-6710-5_3},
+	keywords = {Computing Machinery , Digital Computer , Performance Capacity , Real Robot , Turing Machine },
+	pages = {23--65}
+}
+
+@misc{FeyFutureHall,
+	title = {Introducing the {Futurist} {Hall} of {Fame}},
+	url = {https://futuristspeaker.com/social-trends/introducing-the-futurist-hall-of-fame/},
+	language = {en-US},
+	journal = {Futurist Speaker},
+	month = mar,
+	year = {2016}
+}
+
+@misc{videosingularity,
+	title = {(4) {AI} \& {Technology} {Taking} {Over} {White} {Collar} {Jobs} - {YouTube}},
+	url = {https://www.youtube.com/watch?v=P79jCYS-3is&list=TLPQMjAwMTIwMjBaLGZhxKUUxA&index=22}
+}
+
+@article{Kolhatkar,
+	title = {Could {New} {Research} on {A}.{I}. and {White}-{Collar} {Jobs} {Finally} {Bring} {About} a {Strong} {Policy} {Response}?},
+	issn = {0028-792X},
+	url = {https://www.newyorker.com/business/currency/could-new-research-on-ai-and-white-collar-jobs-finally-bring-about-a-strong-policy-response},
+	abstract = {Artificial intelligence may end up assisting human workers rather than doing their jobs for them. Either way, the uncertainty is likely to cause alarm.},
+	language = {en},
+	author = {Kolhatkar, Sheelah},
+	month = jan,
+	year = {2020},
+	keywords = {ai, artificial intelligence, business, technology}
+}
+
+@misc{noauthor_ai_nodate-2,
+	title = {{AI} will disrupt white-collar workers the most, predicts a new report},
+	url = {https://www.technologyreview.com/f/614739/ai-will-disrupt-white-collar-workers-the-most-predicts-a-new-report/},
+	abstract = {A surprise finding: Conventional wisdom says robotics, artificial intelligence, and automation will radically alter work for blue-collar truckers and factory workers.},
+	language = {en-US},
+	journal = {MIT Technology Review}
+}
+
+@misc{martin_7_2016,
+	title = {7 {White} {Collar} {Jobs} that {Can} {Soon} {Be} {Replaced} by {Bots}},
+	url = {http://startupmindset.com/7-white-collar-jobs-that-can-soon-be-replaced-by-bots/},
+	abstract = {I ordered a meal from McDonald’s the other day.  It had been a while since I visited the restaurant.  Partially because I was on a 10 month diet where Mcnuggets were forbidden.  But since I broke free from the chains of the carb-free diet, I suddenly wanted to make up for lost time by enjoying …},
+	language = {en-US},
+	journal = {StartUp Mindset},
+	author = {Martin, Thomas},
+	month = nov,
+	year = {2016}
+}
+
+@misc{koetsier_ai_nodate,
+	title = {{AI} {Will} {Transform} 500 {Million} {White}-{Collar} {Jobs} {In} 5 {Years}; {Silicon} {Valley} {Must} {Help}},
+	url = {https://www.forbes.com/sites/johnkoetsier/2019/06/04/ai-will-transform-500-million-white-collar-jobs-in-5-years-silicon-valley-must-help/},
+	abstract = {White collar workers can be replaced by software, which is cheap ... while robots are still expensive.},
+	language = {en},
+	journal = {Forbes},
+	author = {Koetsier, John}
+}
+
+@misc{noauthor_ai_nodate-3,
+	title = {{AI} - {The} {Exponential} {Guide} to {Artificial} {Intelligence} - {SU}},
+	url = {https://su.org/resources/exponential-guides/the-exponential-guide-to-artificial-intelligence/},
+	abstract = {At Singularity University, we help organizations and individuals understand the disruptions and opportunities presented by exponential technologies like artificial intelligence. To help you understand this exciting technology, we offer this Exponential Guide to Artificial Intelligence.},
+	language = {en},
+	journal = {Singularity University}
+}
+
+@misc{noauthor_infographic_2017,
+	title = {Infographic {Library}},
+	url = {http://rh-us.mediaroom.com/2019-06-05-49-Of-Workers-Believe-AI-And-Automation-Will-Have-No-Impact-On-Their-Job},
+	abstract = {Find infographics and other visual assets that illustrate emerging workplace and employment trends, based on exclusive research from Robert Half.},
+	language = {en-us},
+	month = jun,
+	year = {2017}
+}
+
+@misc{noauthor_[gerd_nodate,
+	title = {[{Gerd} {Leonhard} {Futurist} {Humanist} {Author} {Keynote} {Speaker}]},
+	url = {https://www.futuristgerd.com/},
+	abstract = {Gerd is a leading Futurist \& Humanist, a global Keynote Speaker, the Author of ‘Technology vs Humanity’ and a Film-Maker.
+He is a Fellow of the Royal Society for the Arts in London, and the CEO of The Futures Agency in Zürich / Switzerland.
+“Embrace technology but don’t become it” is his credo.},
+	language = {en-US}
+}
+
+@misc{noauthor_artificial_nodate,
+	title = {Artificial {Intelligence} {Archives}},
+	url = {https://futuristspeaker.com/category/artificial-intelligence/},
+	language = {en-US},
+	journal = {Futurist Speaker}
+}
+
+@misc{frey_12_2018,
+	title = {12 mind-blowing {AI} advances and 12 critical takeaways to put {AI} in perspective},
+	url = {https://futuristspeaker.com/artificial-intelligence/12-mind-blowing-ai-advances-and-12-critical-takeaways-to-put-ai-in-perspective/},
+	language = {en-US},
+	journal = {Futurist Speaker},
+	author = {Frey, Thomas},
+	month = jan,
+	year = {2018}
+}
+
+
+
+@article{UBI,
+	title = {Universal {Basic} {Income} and {Inclusive} {Capitalism}: {Consequences} for {Sustainability}},
+	volume = {11},
+	copyright = {http://creativecommons.org/licenses/by/3.0/},
+	shorttitle = {Universal {Basic} {Income} and {Inclusive} {Capitalism}},
+	url = {https://www.mdpi.com/2071-1050/11/16/4481},
+	doi = {10.3390/su11164481},
+	number = {16},
+	journal = {Sustainability},
+	author = {Hall, Ralph P. and Ashford, Robert and Ashford, Nicholas A. and Arango-Quiroga, Johan},
+	month = jan,
+	year = {2019},
+	keywords = {binary economics, capital ownership, effective demand, environment, fuller employment, inclusive capitalism, inequality, sustainability, universal basic income (UBI), worker ownership},
+	pages = {4481}
+}
+
+@misc{robotsShierholz,
+	title = {Robots, or automation, are not the problem: {Too} little worker power is},
+	shorttitle = {Robots, or automation, are not the problem},
+	url = {https://www.epi.org/publication/robots-or-automation-are-not-the-problem-too-little-
+	author = {Shierholz, Heidi},
+	language = {en-US},
+	journal = {Economic Policy Institute}
+}
+
+@misc{brookings,
+	title = {What jobs are affected by {AI}? {Better}-paid, better-educated workers face the most exposure},
+	shorttitle = {What jobs are affected by {AI}?},
+	url = {https://www.brookings.edu/research/what-jobs-are-affected-by-ai-better-paid-better-educated-workers-face-the-most-exposure/},
+	abstract = {This analysis demonstrates a new way to identify the kinds of tasks and occupations likely to be affected by AI’s machine learning capabilities.},
+	language = {en-US},
+	journal = {Brookings},
+	author = {Maxim, Jacob Whiton, {and} Robert, Mark Muro},
+	month = nov,
+	year = {2019}
+}
+
+@misc{whitehathacker,
+	title = {Meet the hacker mom big companies hire for cybersecurity},
+	url = {https://www.nbcnews.com/tech/internet/meet-hacker-mom-big-companies-hire-cyber-security-n964291},
+	abstract = {From an office in scenic Missoula, Montana, Sherri Davidoff and an all-female management team run a national consulting firm called LMG Security.},
+	language = {en},
+	journal = {NBC News}
+}
+
+@misc{bigthink,
+	title = {The {Singularity} and {Its} {Discontents} - {Big} {Think}},
+	url = {https://bigthink.com/re-envision-toyota-blog/the-singularity-and-its-discontents}
+}
+
+@misc{ExistentialGoldbach,
+	title = {The {Existential} {Turing} {Test}: in {Search} of our {Humanity} through the {Cinematic} {Representation} of {Artificial} {Intelligence}},
+	url = {https://openaccess.leidenuniv.nl/handle/1887/65967}
+}
+
+@misc{noauthor_when_2017,
+	title = {When fictional robots attack reality {\textbar} {TheINQUIRER}},
+	url = {https://www.theinquirer.net/inquirer/opinion/3004348/when-fictional-robots-attack-reality},
+	abstract = {Westworld, Humans and Black Mirror are closer than you think,Gadgets ,AI,cloud computing,Hardware},
+	language = {en},
+	journal = {http://www.theinquirer.net},
+	month = feb,
+	year = {2017}
+}
+
+@misc{nearIndependent,
+	title = {Why near-future science fiction like {Westworld} and {Black} {Mirror} is so terrifying: {They} allow for discussions of the implications of believable changes},
+	shorttitle = {Why near-future science fiction like {Westworld} and {Black} {Mirror} is so terrifying},
+	url = {http://www.independent.co.uk/arts-entertainment/films/features/science-fiction-black-mirror-westworld-humans-her-robots-ex-machina-agenst-of-shield-a7605841.html},
+	abstract = {The near-future sub-genre, which imagines a future only a short time away, closely aligns itself to the latest developments in science and technology to make it all the more real},
+	language = {en},
+	journal = {The Independent},
+	month = mar,
+	year = {2017}
+}
+
+@misc{janetAtlantic,
+	title = {Sympathy for {Janet} on '{The} {Good} {Place}'},
+	url = {https://www.theatlantic.com/entertainment/archive/2018/02/the-good-place-black-mirror-westworld-ai-robot-ethics-janet/552971/},
+	abstract = {The show is the latest example of pop culture thinking through whether Siri has a soul.},
+	language = {en-US},
+	journal = {The Atlantic},
+	author = {Kornhaber, Spencer},
+	month = feb,
+	year = {2018}
+}
+
+@book{Kurzweilsingnear,
+	title = {The {Singularity} {Is} {Near}: {When} {Humans} {Transcend} {Biology}},
+	isbn = {9781101218884},
+	shorttitle = {The {Singularity} {Is} {Near}},
+	language = {en},
+	publisher = {Penguin},
+	author = {Kurzweil, Ray},
+	month = sep,
+	year = {2005},
+	note = {Google-Books-ID: 9FtnppNpsT4C},
+	keywords = {Computers / Intelligence (AI) \& Semantics, Science / Biotechnology, Social Science / Future Studies}
+}
+
+@misc{ZimmermannActualization,
+	title = {({PDF}) {The} {Singularity}: {A} {Crucial} {Phase} in {Divine} {Self}-{Actualization}?},
+	shorttitle = {({PDF}) {The} {Singularity}},
+	url = {https://www.researchgate.net/publication/26593763_The_Singularity_A_Crucial_Phase_in_Divine_Self-Actualization},
+	abstract = {ResearchGate is a network dedicated to science and research. Connect, collaborate and discover scientific publications, jobs and conferences. All for free.},
+	language = {en},
+	journal = {ResearchGate}
+}
+
+@article{turingHarmless,
+	title = {Turing {Test} {Considered} {Mostly} {Harmless}},
+	volume = {31},
+	issn = {1882-7055},
+	url = {https://doi.org/10.1007/s00354-013-0401-2},
+	doi = {10.1007/s00354-013-0401-2},
+	language = {en},
+	number = {4},
+	journal = {New Generation Computing},
+	author = {Berrar, Daniel and Konagaya, Akihiko and Schuster, Alfons},
+	month = oct,
+	year = {2013},
+	pages = {241--263}
+}
+
+@article{yearslaterSaygin,
+	title = {Turing {Test}: 50 {Years} {Later}},
+	volume = {10},
+	issn = {1572-8641},
+	shorttitle = {Turing {Test}},
+	url = {https://doi.org/10.1023/A:1011288000451},
+	doi = {10.1023/A:1011288000451},
+	language = {en},
+	number = {4},
+	journal = {Minds and Machines},
+	author = {Pinar Saygin, Ayse and Cicekli, Ilyas and Akman, Varol},
+	month = nov,
+	year = {2000},
+	pages = {463--518}
+}
+
+@article{standfordturing,
+	title = {The {Turing} {Test}},
+	url = {https://seop.illc.uva.nl/entries/turing-test/},
+	author = {Oppy, Graham and Dowe, David},
+	month = apr,
+	year = {2003}
+}
+
+@misc{videoturing,
+	title = {The {Turing} test: {Can} a computer pass for a human? - {Alex} {Gendler}},
+	shorttitle = {The {Turing} test},
+	url = {https://www.youtube.com/watch?v=3wLqsRLvV-c&feature=youtu.be},
+}
+
+@misc{maxim_what_2019-1,
+	title = {What jobs are affected by {AI}? {Better}-paid, better-educated workers face the most exposure},
+	shorttitle = {What jobs are affected by {AI}?},
+	url = {https://www.brookings.edu/research/what-jobs-are-affected-by-ai-better-paid-better-educated-workers-face-the-most-exposure/},
+	abstract = {This analysis demonstrates a new way to identify the kinds of tasks and occupations likely to be affected by AI’s machine learning capabilities.},
+	language = {en-US},
+	journal = {Brookings},
+	author = {Maxim, Jacob Whiton, {and} Robert, Mark Muro},
+	month = nov,
+	year = {2019}
+}
+
+@misc{meaney_realism_2019,
+	title = {Realism about reskilling},
+	url = {https://www.brookings.edu/research/realism-about-reskilling/},
+	abstract = {This report reviews how to upgrade the career prospects of America's low-wage workers.},
+	language = {en-US},
+	journal = {Brookings},
+	author = {Meaney, Ian Seyal, {and} Michael J., Marcela Escobari},
+	month = nov,
+	year = {2019}
+}
+
+@article{frey_future_2017,
+	title = {The future of employment: {How} susceptible are jobs to computerisation?},
+	volume = {114},
+	issn = {0040-1625},
+	shorttitle = {The future of employment},
+	url = {http://www.sciencedirect.com/science/article/pii/S0040162516302244},
+	doi = {10.1016/j.techfore.2016.08.019},
+	abstract = {We examine how susceptible jobs are to computerisation. To assess this, we begin by implementing a novel methodology to estimate the probability of computerisation for 702 detailed occupations, using a Gaussian process classifier. Based on these estimates, we examine expected impacts of future computerisation on US labour market outcomes, with the primary objective of analysing the number of jobs at risk and the relationship between an occupations probability of computerisation, wages and educational attainment.},
+	language = {en},
+	journal = {Technological Forecasting and Social Change},
+	author = {Frey, Carl Benedikt and Osborne, Michael A.},
+	month = jan,
+	year = {2017},
+	keywords = {Employment, Occupational choice, Skill demand, Technological change, Wage inequality},
+	pages = {254--280}
+}
+
+@misc{bergstein_this_nodate,
+	title = {This is why {AI} has yet to reshape most businesses},
+	url = {https://www.technologyreview.com/s/612897/this-is-why-ai-has-yet-to-reshape-most-businesses/},
+	abstract = {For many companies, deploying AI is slower and more expensive than it might seem.},
+	language = {en-US},
+	journal = {MIT Technology Review},
+	author = {Bergstein, Brian}
+}
+
+@misc{kauflin_10_nodate,
+	title = {The 10 {Technical} {Skills} {With} {Explosive} {Growth} {In} {Job} {Demand}},
+	url = {https://www.forbes.com/sites/jeffkauflin/2017/01/08/the-10-technical-skills-with-explosive-growth-in-job-demand/},
+	abstract = {Bentley University commissioned a study to find which business skills are growing in demand. By looking at millions of job listings posted on more than 40,000 online job sites, jobs analytics firm Burning Glass determined which skills saw the biggest increases in demand when comparing 2011 to 2015.},
+	language = {en},
+	journal = {Forbes},
+	author = {Kauflin, Jeff}
+}
+
+@misc{noauthor_10_nodate,
+	title = {The 10 {Technical} {Skills} {With} {Explosive} {Growth} {In} {Job} {Demand}},
+	url = {https://www.forbes.com/sites/jeffkauflin/2017/01/08/the-10-technical-skills-with-explosive-growth-in-job-demand/#25c9864e4f5c}
+}
+
+@misc{noauthor_10_nodate-1,
+	title = {The 10 {Technical} {Skills} {With} {Explosive} {Growth} {In} {Job} {Demand}},
+	url = {https://www.forbes.com/sites/jeffkauflin/2017/01/08/the-10-technical-skills-with-explosive-growth-in-job-demand/#25c9864e4f5c}
+}
+
+
+@misc{minitab,
+	title = {Understanding {Bootstrapping} and the {Central} {Limit} {Theorem}},
+	url = {https://blog.minitab.com/blog/the-statistics-game/understanding-bootstrapping-and-the-central-limit-theorem},
+	abstract = {Understanding Bootstrapping and the Central Limit Theorem},
+	language = {blog},
+	author = {Rudy, Kevin}
+}
+
+
+@misc{secondthoughts,
+	title = {Second {Thoughts} on the {Bootstrap}},
+	url = {https://www.researchgate.net/publication/38384836_Second_Thoughts_on_the_Bootstrap}
+}
+
+@article{teachers,
+	title = {What {Teachers} {Should} {Know} about the {Bootstrap}: {Resampling} in the {Undergraduate} {Statistics} {Curriculum}},
+	shorttitle = {What {Teachers} {Should} {Know} about the {Bootstrap}},
+	url = {http://arxiv.org/abs/1411.5279},
+	journal = {arXiv:1411.5279 [stat]},
+	author = {Hesterberg, Tim},
+	month = nov,
+	year = {2014},
+	note = {arXiv: 1411.5279},
+	keywords = {62-01 (Primary) 62G09 (Secondary), G.3, I.6.8, K.3.0, Statistics - Methodology, Statistics - Other Statistics}
+}
+
+@misc{define,
+	title = {Bootstrap {Sample}: {Definition}, {Example}},
+	shorttitle = {Bootstrap {Sample}},
+	url = {https://www.statisticshowto.datasciencecentral.com/bootstrap-sample/},
+	abstract = {What is a bootstrap sample? Definition of bootstrapping in plain English. Notation, percentile method.},
+	language = {en-US},
+	journal = {Statistics How To},
+	author = {{Stephanie}},
+	month = nov,
+	year = {2016}
+}
+
+@misc{SmartVision,
+	title = {Bradley {Efron}: "{The} bootstrap is rarely the star of statistics, but it is the best supporting actor"},
+	shorttitle = {Bradley {Efron}},
+	url = {https://www.youtube.com/watch?v=H2tOhMaXWvI},
+	abstract = {Interview with Bradley Efron, BBVA Foundation Frontiers of Knowledge Award in Basic Sciences in 2016 jointly with David Cox, for developing pioneering and hugely influential statistical methods that have proved indispensable for obtaining reliable results in a vast spectrum of disciplines, from medicine to astrophysics, genomics or particle physics.}
+}
+
+
+@misc{forget
+	title = {Don’t {Forget} the {Conditions} for the {Bootstrap}! {\textbar} {Simulation}-based statistical inference},
+	url = {https://www.causeweb.org/sbi/?p=1404},
+	language = {en-US}
+}
+
+@misc{sbiteacher,
+	title = {What teachers should know about the {Bootstrap}: {Resampling} in the undergraduate statistics curriculum {\textbar} {Simulation}-based statistical inference},
+	shorttitle = {What teachers should know about the {Bootstrap}},
+	url = {https://www.causeweb.org/sbi/?p=521},
+	language = {en-US}
+}
+
+@misc{Flair,
+	title = {Why {Learn} {Data} {Science}? - 5 {Major} {Reasons} that will {Blow} {Your} {Mind}!},
+	shorttitle = {Why {Learn} {Data} {Science}?},
+	url = {https://data-flair.training/blogs/why-learn-data-science/},
+	abstract = {Explore the answer to why learn data science? Learn the different reasons for making a career in data science and the benefits of learning data science.},
+	language = {en-US},
+	journal = {DataFlair},
+	author = {Team, DataFlair},
+	month = apr,
+	year = {2019}
+}
+
+
+@article{Blume,
+	title = {Second-generation p-values: {Improved} rigor, reproducibility, \& transparency in statistical analyses},
+	volume = {13},
+	issn = {1932-6203},
+	shorttitle = {Second-generation p-values},
+	url = {https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0188299},
+	doi = {10.1371/journal.pone.0188299},
+	language = {en},
+	number = {3},
+	journal = {PLOS ONE},
+	author = {Blume, Jeffrey D. and McGowan, Lucy D’Agostino and Dupont, William D. and Jr, Robert A. Greevy},
+	month = mar,
+	year = {2018},
+	keywords = {Acute myeloid leukemia, Blood pressure, Gene expression, Leukemias, Lung and intrathoracic tumors, Microarrays, Research errors, Statistical data},
+	pages = {e0188299}
+}
+
+@misc{recovering,
+	title = {Recovering from bootstrap intoxication {\textbar} {Statistical} {Biophysics} {Blog}},
+	url = {http://statisticalbiophysicsblog.org/?p=213},
+	language = {en-US}
+}
+
+@misc{forget,
+	title = {Don’t {Forget} the {Conditions} for the {Bootstrap}! {\textbar} {Simulation}-based statistical inference},
+	url = {https://www.causeweb.org/sbi/?p=1404},
+	language = {en-US}
+}
+
+
+@article{euclidbci,
+	title = {Bootstrap {Confidence} {Intervals}},
+	volume = {11},
+	issn = {0883-4237},
+	url = {https://www.jstor.org/stable/2246110},
+	abstract = {This article surveys bootstrap methods for producing good approximate confidence intervals. The goal is to improve by an order of magnitude upon the accuracy of the standard intervals \${\textbackslash}hat\{{\textbackslash}theta\} {\textbackslash}pm z{\textasciicircum}\{({\textbackslash}alpha)\} {\textbackslash}hat\{\vphantom{\}}{\textbackslash}sigma)\$, in a way that allows routine application even to very complicated problems. Both theory and examples are used to show how this is done. The first seven sections provide a heuristic overview of four bootstrap confidence interval procedures: \$BC\_a\$, bootstrap-\$t\$, ABC and calibration. Sections 8 and 9 describe the theory behind these methods, and their close connection with the likelihood-based confidence interval theory developed by Barndorff-Nielsen, Cox and Reid and others.},
+	number = {3},
+	journal = {Statistical Science},
+	author = {DiCiccio, Thomas J. and Efron, Bradley},
+	year = {1996},
+	pages = {189--212}
+}
+
+@misc{sciencedirectoverview,
+	title = {Bootstrap {Sample}: {Definition}, {Example}},
+	shorttitle = {Bootstrap {Sample}},
+	url = {https://www.statisticshowto.datasciencecentral.com/bootstrap-sample/},
+	abstract = {What is a bootstrap sample? Definition of bootstrapping in plain English. Notation, percentile method.},
+	language = {en-US},
+	journal = {Statistics How To},
+	author = {{Stephanie}},
+	month = nov,
+	year = {2016}
+}
+
+@misc{gentlemethod,
+	title = {A {Gentle} {Introduction} to the {Bootstrap} {Method}},
+	url = {https://machinelearningmastery.com/a-gentle-introduction-to-the-bootstrap-method/},
+	abstract = {The bootstrap method is a resampling technique used to estimate statistics on a population by sampling a dataset with replacement. It can be used to estimate summary statistics such as the mean or standard deviation. It is used in applied machine learning to estimate the skill of machine learning models when making predictions on data …},
+	language = {en-US},
+	journal = {Machine Learning Mastery},
+	author = {Brownlee, Jason},
+	month = may,
+	year = {2018}
+}
+
+@misc{phrase,
+	title = {Why {The} {Phrase} '{Pull} {Yourself} {Up} {By} {Your} {Bootstraps}' {Is} {Nonsense} {\textbar} {HuffPost}},
+	url = {https://www.huffpost.com/entry/pull-yourself-up-by-your-bootstraps-nonsense_n_5b1ed024e4b0bbb7a0e037d4}
+}
+
+
+@misc{blsfast,
+	title = {Fastest {Growing} {Occupations} : {Occupational} {Outlook} {Handbook}: : {U}.{S}. {Bureau} of {Labor} {Statistics}},
+	shorttitle = {Fastest {Growing} {Occupations}},
+	url = {https://www.bls.gov/ooh/fastest-growing.htm},
+	abstract = {20 occupations with the highest percent change of employment between 2018–28.},
+	language = {en-us}
+}
+
+@misc{blsmarket,
+	title = {Market {Research} {Analysts} : {Occupational} {Outlook} {Handbook}: : {U}.{S}. {Bureau} of {Labor} {Statistics}},
+	shorttitle = {Market {Research} {Analysts}},
+	url = {https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm},
+	abstract = {Market research analysts study market conditions to examine potential sales of a product or service.},
+	language = {en-us}
+}
+
+@misc{blsoccupation,
+	title = {Computer and {Information} {Research} {Scientists} : {Occupational} {Outlook} {Handbook}: : {U}.{S}. {Bureau} of {Labor} {Statistics}},
+	shorttitle = {Computer and {Information} {Research} {Scientists}},
+	url = {https://www.bls.gov/ooh/computer-and-information-technology/computer-and-information-research-scientists.htm#tab-9},
+	abstract = {Computer and information research scientists invent and design new approaches to computing technology and find innovative uses for existing technology.},
+	language = {en-us}
+}

@@ -1,0 +1,716 @@
+@misc{sandoe2018, 
+  title={Policy Levers That States Can Use To improve Opioid Addiction Treatment And Address The Opioid Epidemic}, 
+  author={Sandoe, Emma and Fry, Carrie E and Frank, Richard G}, 
+  year={2018}, 
+  month={Oct},
+  url={https://www.healthaffairs.org/do/10.1377/hblog20180927.51221/full/}, journal={The Physician Payments Sunshine Act}
+}
+@misc{iod2018, 
+  title={Downloadable Resources},  
+  journal={International Overdose Awareness Day},
+  url={https://www.overdoseday.com/resources/downloadable-resources/},
+}
+@misc{penington, 
+  title={Conferences and seminars}, 
+  journal={penington},
+  url={http://www.penington.org.au/programs-and-campaigns/conferences-and-seminars/}
+}
+@misc{elements_2018, 
+  title={International Overdose Awareness Day 2018},
+  journal={The Essential Elements}, 
+  year={2018}, 
+  month={Aug},
+  url={https://essentialelements.naccho.org/archives/11460}
+}
+@misc{helfand, 
+  title={International Overdose Awareness Day Coming August 31st}, 
+  author={Helfand, Ezra},
+  journal={National Council on Alcoholism and Drug Dependence}, 
+  publisher={NCADD}, 
+  url={https://www.ncadd.org/index.php/about-ncadd/events-awards/international-overdose-awareness-day-coming-august-31st}
+}
+@misc{prevention_2017, 
+  title={Morbidity and Mortality Weekly Report (MMWR)-International Overdose Awareness Day — August 31, 2017},  
+  journal={Centers for Disease Control and Prevention}, 
+  publisher={Centers for Disease Control and Prevention}, 
+  year={2017}, 
+  month={Aug},
+  url={https://www.cdc.gov/mmwr/volumes/66/wr/mm6634a1.htm}
+}
+
+@misc{prevention_2017, 
+  title={Morbidity and Mortality Weekly Report (MMWR)-},  
+  journal={Centers for Disease Control and Prevention}, 
+  publisher={Centers for Disease Control and Prevention}, 
+  year={2017}, 
+  month={Aug},
+  url={https://www.cdc.gov/mmwr/volumes/66/wr/mm6634a1.htm}
+}
+
+@misc{ntl, 
+  title={Safety at Home},  
+  journal={National Safety Council},
+  url={https://www.nsc.org/home-safety/safety-topics/opioids/international-overdose-awareness-day}
+}
+@incollection{hazen2009sociolinguistics,
+  title={Sociolinguistics in the United States of America},
+  author={Hazen, Kirk},
+  booktitle={The Routledge Handbook of Sociolinguistics Around the World},
+  pages={27--44},
+  year={2009},
+  publisher={Routledge}
+}
+@misc{britannica_2008, 
+  title={Sociolinguistics},
+  author={Britannica, The Editors of Encyclopaedia},
+  journal={Encyclopædia Britannica}, 
+  publisher={Encyclopædia Britannica, inc.},  
+  year={2008}, 
+  month={Dec},
+   url={https://www.britannica.com/science/sociolinguistics}
+}
+@article{baikie2006expressive,
+  title={Expressive writing for high-risk drug dependent patients in a primary care clinic: A pilot study},
+  author={Baikie, Karen A and Wilhelm, Kay and Johnson, Beverley and Boskovic, Mary and Wedgwood, Lucinda and Finch, Adam and Huon, Gail},
+  journal={Harm reduction journal},
+  volume={3},
+  number={1},
+  pages={34},
+  year={2006},
+  publisher={BioMed Central}
+}
+@phdthesis{clark2019applications,
+  title={Applications in Sentiment Analysis and Machine Learning for Identifying Public Health Variables across Social Media},
+  author={Clark, Eric M},
+  year={2019},
+  school={The University of Vermont and State Agricultural College}
+}
+@inproceedings{paul2016social,
+  title={Social media mining for public health monitoring and surveillance},
+  author={Paul, Michael J and Sarker, Abeed and Brownstein, John S and Nikfarjam, Azadeh and Scotch, Matthew and Smith, Karen L and Gonzalez, Graciela},
+  booktitle={Biocomputing 2016: Proceedings of the Pacific Symposium},
+  pages={468--479},
+  year={2016},
+  organization={World Scientific}
+  url={https://www.researchgate.net/publication/303127692_SOCIAL_MEDIA_MINING_FOR_PUBLIC_HEALTH_MONITORING_AND_SURVEILLANCE}
+}
+@misc{who2015, 
+  title={Pharmacovigilance}, 
+  journal={World Health Organization}, 
+  publisher={World Health Organization}, 
+  year={2015}, 
+  month={Nov},  
+  url={https://www.who.int/medicines/areas/quality_safety/safety_efficacy/pharmvigi/en/}
+}
+@misc{media_advo - ucla center for health policy research, 
+  url={http://healthpolicy.ucla.edu/programs/health-data/trainings/Documents/tw_media2.pdf}
+}
+@misc{community_toolbox, 
+  title={ Working with the Media},
+  journal={Community toolbox},
+  url={https://ctb.ku.edu/en/table-of-contents/advocacy/media-advocacy/working-with-media/main}
+  }
+@article{paone2015decrease,
+  title={Decrease in rate of opioid analgesic overdose deaths—Staten Island, New York City, 2011--2013},
+  author={Paone, Denise and Tuazon, Ellenie and Kattan, Jessica and Nolan, Michelle L and O’Brien, Daniella Bradley and Dowell, Deborah and Farley, Thomas A and Kunins, Hillary V},
+  journal={MMWR. Morbidity and mortality weekly report},
+  volume={64},
+  number={18},
+  pages={491},
+  year={2015},
+  publisher={Centers for Disease Control and Prevention},
+  url={https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4584824/pdf/491-494.pdf}
+}
+@misc{virgin_2017, 
+  title={Finally – a change in course on drug policy}, 
+  journal={Virgin}, author={Admin}, 
+  year={2017}, 
+  month={Apr},
+  url={https://www.virgin.com/richard-branson/finally-a-change-in-course-on-drug-policy}
+  }
+@misc{smart_2018, 
+  title={Destigmatizing Addiction}, 
+  journal={SMART Recovery}, 
+  year={2018}, 
+  month={Jan},  
+  url={https://www.smartrecovery.org/destigmatizing-addiction/}
+  }
+@article{bliuc2018sober,
+  title={Sober social networks: The role of online support groups in recovery from alcohol addiction},
+  author={Bliuc, Ana-Maria and Doan, Tuyet-Ngan and Best, David},
+  journal={Journal of Community \& Applied Social Psychology},
+  year={2018},
+  publisher={Wiley Online Library},
+  url={https://onlinelibrary.wiley.com/doi/abs/10.1002/casp.2388}
+}
+@article{hosea2014language,
+  title={Language and stigmatization in addiction medicine},
+  author={Hosea, Devin F},
+  journal={American journal of public health},
+  volume={104},
+  number={8},
+  pages={e1},
+  year={2014},
+  publisher={American Public Health Association},
+  url={https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4103219/}
+}
+@inproceedings{gaur2018let,
+  title={Let Me Tell You About Your Mental Health!: Contextualized Classification of Reddit Posts to DSM-5 for Web-based Intervention},
+  author={Gaur, Manas and Kursuncu, Ugur and Alambo, Amanuel and Sheth, Amit and Daniulaityte, Raminta and Thirunarayan, Krishnaprasad and Pathak, Jyotishman},
+  booktitle={Proceedings of the 27th ACM International Conference on Information and Knowledge Management},
+  pages={753--762},
+  year={2018},
+  organization={ACM}
+}
+@article{kemp2001metalinguistic,
+  title={Metalinguistic awareness in multilinguals: Implicit and explicit grammatical awareness and its relationship with language experience and language attainment},
+  author={Kemp, Charlotte},
+  year={2001},
+  publisher={University of Edinburgh}
+}
+@incollection{mertz2009metalinguistic,
+  title={Metalinguistic awareness},
+  author={Mertz, Elizabeth and Yovel, Jonathan},
+  booktitle={Cognition and Pragmatics},
+  pages={250--271},
+  year={2009},
+  publisher={John Benjamins}
+}
+@article{doherty1998metalinguistic,
+  title={Metalinguistic awareness and theory of mind: Just two words for the same thing?},
+  author={Doherty, Martin and Perner, Josef},
+  journal={Cognitive Development},
+  volume={13},
+  number={3},
+  pages={279--305},
+  year={1998},
+  publisher={Elsevier}
+}
+@book{wagner2010vocabulary,
+  title={Vocabulary acquisition: Implications for reading comprehension.},
+  author={Wagner, Richard K and Muse, Andrea E and Tannenbaum, Kendra R},
+  year={2007},
+  publisher={Guilford Press},
+  isbn={978-1593853389},
+  url={https://www.amazon.com/dp/1593853386},
+  urldate={2018-07-11}
+}
+@article{bialystok2014producing,
+  title={Producing bilinguals through immersion education: Development of metalinguistic awareness},
+  author={Bialystok, Ellen and Peets, Kathleen F and Moreno, Sylvain},
+  journal={Applied Psycholinguistics},
+  volume={35},
+  number={1},
+  pages={177--191},
+  year={2014},
+  publisher={Cambridge University Press},
+  doi={10.1017/S0142716412000288},
+  url={https://doi.org/10.1017/S0142716412000288}
+}
+@article{cummins1978bilingualism,
+  title={Bilingualism and the development of metalinguistic awareness},
+  author={Cummins, James},
+  journal={Journal of cross-cultural psychology},
+  volume={9},
+  number={2},
+  pages={131--149},
+  year={1978},
+  publisher={Sage Publications Sage CA: Thousand Oaks, CA},
+  doi={10.1177/002202217892001},
+  url={https://doi.org/10.1177/002202217892001}
+}
+@article{lam2012role,
+  title={The role of morphological awareness in reading achievement among young Chinese-speaking English language learners: A longitudinal study},
+  author={Lam, Katie and Chen, Xi and Geva, Esther and Luo, Yang C and Li, Hong},
+  journal={Reading and Writing},
+  volume={25},
+  number={8},
+  pages={1847--1872},
+  year={2012},
+  publisher={Springer},
+  doi={10.1007/s11145-011-9329-4},
+  url={DOI: 10.1007/s11145-011-9329-4}
+}
+@article{tausczik2010psychological,
+  title={The psychological meaning of words: LIWC and computerized text analysis methods},
+  author={Tausczik, Yla R and Pennebaker, James W},
+  journal={Journal of language and social psychology},
+  volume={29},
+  number={1},
+  pages={24--54},
+  year={2010},
+  publisher={Sage Publications Sage CA: Los Angeles, CA},
+  doi={10.1177/0261927X09351676},
+  url={https://doi.org/10.1177/0261927X09351676}
+}
+@misc{sussman2011considering,
+  title={Considering the definition of addiction},
+  author={Sussman, Steve and Sussman, Alan N},
+  year={2011},
+  publisher={Molecular Diversity Preservation International}
+}
+@article{goodman1990,
+  title={Addiction: definition and implications},
+  author={Goodman, Aviel},
+  journal={British journal of addiction},
+  volume={85},
+  number={11},
+  pages={1403--1408},
+  year={1990},
+  publisher={Wiley Online Library},
+  url={https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1360-0443.1990.tb01620.x}
+}
+@article{bradley1999affective,
+  title={Affective Norms for English Words (ANEW): Instruction manual and affective ratings},
+  author={Bradley, Margaret M and Lang, Peter J},
+  year={1999},
+  publisher={Citeseer}
+}
+@article{murnane2017framework,
+  title={A Framework for Domain-Driven Development of Personal Health Informatics Technologies},
+  author={Murnane, Elizabeth Lindley},
+  year={2017}
+}
+@article{leykin2016leveraging,
+  title={Leveraging social computing for personalized crisis communication using social media},
+  author={Leykin, Dmitry and Aharonson-Daniel, Limor and Lahad, Mooli},
+  journal={PLoS currents},
+  volume={8},
+  year={2016},
+  publisher={Public Library of Science}
+}
+@article{neuman2015profiling,
+  title={Profiling school shooters: Automatic text-based analysis},
+  author={Neuman, Yair and Assaf, Dan and Cohen, Yochai and Knoll, James L},
+  journal={Frontiers in psychiatry},
+  volume={6},
+  pages={86},
+  year={2015},
+  publisher={Frontiers}
+}
+@article{woodworth2012language,
+  title={The language of psychopaths: New findings and implications for law enforcement},
+  author={Woodworth, Michael and Hancock, Jeffrey and Porter, Stephen and Hare, Robert and Logan, Matt and O'Toole, Mary Ellen and Smith, Sharon},
+  journal={FBI L. Enforcement Bull.},
+  volume={81},
+  pages={28},
+  year={2012},
+  publisher={HeinOnline}
+}
+@article{giebels2014understanding,
+  title={Understanding high-stakes conflicts},
+  author={Giebels, Ellen and Ufkes, Elze G and van Erp, KJ},
+  journal={The handbook of research in conflict management},
+  pages={66--78},
+  year={2014},
+  publisher={Edward Elgar Publishing Northampton, MA}
+}
+@inproceedings{glasgow2014assessing,
+  title={Assessing violence risk in threatening communications},
+  author={Glasgow, Kimberly and Schouten, Ronald},
+  booktitle={Proceedings of the Workshop on Computational Linguistics and Clinical Psychology: From Linguistic Signal to Clinical Reality},
+  pages={38--45},
+  year={2014}
+}
+@article{shuchman2002journalists,
+  title={Journalists as change agents in medicine and health care},
+  author={Shuchman, Miriam},
+  journal={Jama},
+  volume={287},
+  number={6},
+  pages={776--776},
+  year={2002},
+  publisher={American Medical Association}
+}
+@article{okie2010flood,
+  title={A flood of opioids, a rising tide of deaths},
+  author={Okie, Susan},
+  journal={New England Journal of Medicine},
+  volume={363},
+  number={21},
+  pages={1981--1985},
+  year={2010},
+  publisher={Mass Medical Soc}
+ }
+@misc{meier_2016, 
+ title={Opioid Prescribing Gets Another Look as F.D.A. Revisits Mandatory Doctor Training},  
+ author={Meier, Barry}, 
+ journal={The New York Times}, 
+ publisher={The New York Times}, 
+ year={2016}, 
+ month={May},
+ url={https://www.nytimes.com/2016/05/03/business/fda-again-reviews-mandatory-training-for-painkiller-prescribers.html}
+}
+@misc{allen_kelly_2017, 
+  title={Trump Administration Declares Opioid Crisis A Public Health Emergency},  
+  author={Allen, Greg and Kelly, Amita},
+  journal={NPR}, publisher={NPR}, 
+  year={2017}, 
+  month={Oct},
+ url={https://www.npr.org/2017/10/26/560083795/president-trump-may-declare-opioid-epidemic-national-emergency}
+  }
+@misc{merica_2017,  
+ title={Trump declares opioid epidemic a public health emergency},
+ author={Merica, Dan},
+ journal={CNN}, 
+ publisher={Cable News Network}, 
+ year={2017}, 
+ month={Oct},
+ url={https://www.cnn.com/2017/10/26/politics/donald-trump-opioid-epidemic/index.html}
+}
+@misc{whitehouse, 
+  title={The Opioid Crisis}, 
+  journal={The White House}, 
+  publisher={The United States Government},
+  url={https://www.whitehouse.gov/opioids/}
+}
+@misc{william_2019, 
+  title={Separate, Unequal and Overlooked},  
+  author={William, Joseph}, 
+  journal={U.S. News & World Report}, 
+  publisher={U.S. News & World Report}, 
+  year={2019}, 
+  month={Jan},
+  url={https://www.usnews.com/news/health-news/articles/2019-01-28/black-americas-opioid-crisis-separate-unequal-overlooked}
+}
+@misc{ridolphi_2019, 
+  title={Regional website to aid in opioid fight}, 
+  author={Ridolphi, Jim}, 
+  journal={Richmond Times-Dispatch}, 
+  publisher={Richmond Times-Dispatch}, 
+  year={2019}, 
+  month={Feb},
+url={https://www.richmond.com/news/local/hanover/mechanicsville-local/regional-website-to-aid-in-opioid-fight/article_24b4fefe-2ee7-11e9-90d7-f74644709d1c.html}
+}
+@misc{katz_2017,
+  title={Short Answers to Hard Questions About the Opioid Crisis},
+  author={Katz, Josh}, 
+  journal={The New York Times}, 
+  publisher={The New York Times}, 
+  year={2017}, 
+  month={Aug},
+  url={https://www.nytimes.com/interactive/2017/08/03/upshot/opioid-drug-overdose-epidemic.html}
+}
+@misc{davis_2017, 
+  title={Trump Declares Opioid Crisis a 'Health Emergency' but Requests No Funds}, 
+  author={Davis, Julie Hirschfeld}, 
+  journal={The New York Times}, 
+  publisher={The New York Times}, 
+  year={2017}, 
+  month={Oct},
+  url={https://www.nytimes.com/2017/10/26/us/politics/trump-opioid-crisis.html}
+}
+
+@misc{johnson_wagner_2017,  
+  title={Trump declares the opioid crisis a public health emergency},  
+  author={Johnson, Jenna and Wagner, John},
+  journal={The Washington Post}, 
+  publisher={WP Company}, 
+  year={2017}, 
+  month={Oct},
+  url={https://www.washingtonpost.com/news/post-politics/wp/2017/10/26/trump-plans-to-declare-the-opioid-crisis-a-public-health-emergency/}
+ }
+@misc{firger_2017, 
+  title={Trump will declare the opioid crisis a public health emergency. What does that mean?},  
+  author={Firger, Jessica}, 
+  journal={Newsweek}, 
+  year={2017}, 
+  month={Oct},
+  url={https://www.newsweek.com/opioid-crisis-what-does-trump-mean-declare-national-public-health-emergency-693863}
+}
+@misc{lopez_2017, 
+  title={Trump just declared a public health emergency to combat the opioid crisis. Here's what that will do.},  
+  author={Lopez, German},
+  journal={vox.com}, 
+  publisher={Vox Media},  
+  year={2017}, 
+  month={Oct},
+  url={https://www.vox.com/policy-and-politics/2017/10/26/16552168/trump-opioid-epidemic-emergency}
+}
+@misc{stobbe_2017, 
+  title={Opioid epidemic shares chilling similarities with the past}, 
+  author={Stobbe, Mike}, 
+  journal={AP News}, 
+  publisher={Associated Press}, 
+  year={2017}, 
+  month={Oct},
+  url={https://www.apnews.com/dc926eb0cf114067a35d303c9b18a9cf}
+}
+@misc{stobbe_ap_cbsnews_2017, 
+  title={Opioid epidemic shares chilling similarities with the past}, 
+  author={Stobbe, Mike and AP and cbsnews},
+  journal={CBS News}, 
+  publisher={CBS Interactive},  
+  year={2017}, 
+  month={Oct},
+  url={https://www.cbsnews.com/news/opioid-epidemic-shares-chilling-similarities-with-the-past/}
+}
+@misc{wilson_2017, 
+  title={The Hidden Tragedy of the Opioid Crisis},
+  author={Wilson, Chris},
+  journal={Time}, 
+  publisher={Time}, 
+  year={2017}, 
+  month={Oct},
+  url={http://time.com/5000130/opioid-crisis-suicide/}
+}
+@misc{chakraborty_2017, 
+  title={Trump declares opioid crisis a 'public health emergency'}, 
+  author={Chakraborty, Barnini}, 
+  journal={Fox News}, 
+  publisher={FOX News Network}, 
+  year={2017}, 
+  month={Oct},
+  url={https://www.foxnews.com/politics/trump-declares-opioid-crisis-a-public-health-emergency}
+  }
+  
+@misc{fox_news_insider_2017, 
+  title={WATCH: Trump Tells Personal Story During Speech on Addiction},
+  author={Fox News Insider},
+  journal={Fox News}, 
+  publisher={FOX News Network},  
+  year={2017}, 
+  month={Oct},
+  url={https://insider.foxnews.com/2017/10/26/donald-trump-tells-personal-story-brother-freds-alcohol-addiction-opioid-speech}
+}
+@misc{nat_abuse_2018, 
+  title={Opioid Summaries by State}, 
+  author={National Institute on Drug Abuse}, 
+  journal={NIDA}, 
+  year={2018}, 
+  month={Feb},
+  url={https://www.drugabuse.gov/drugs-abuse/opioids/opioid-summaries-by-state}
+}
+@misc{natwv_abuse_2018, 
+  title={West Virginia Opioid Summary}, 
+  author={National Institute on Drug Abuse}, 
+  journal={NIDA}, 
+  year={2018}, 
+  month={Feb},
+  url={https://www.drugabuse.gov/drugs-abuse/opioids/opioid-summaries-by-state/west-virginia-opioid-summary}
+}
+@misc{natpa_abuse_2018, 
+  title={Pennsylvania Opioid Summary, 
+  author={National Institute on Drug Abuse}, 
+  journal={NIDA}, 
+  year={2018}, 
+  month={Feb},
+  url={https://www.drugabuse.gov/drugs-abuse/opioids/opioid-summaries-by-state/pennsylvania-opioid-summary}
+}
+@article{netherland2016war,
+  title={The war on drugs that wasn’t: wasted whiteness,“Dirty Doctors,” and race in media coverage of prescription opioid misuse},
+  author={Netherland, Julie and Hansen, Helena B},
+  journal={Culture, Medicine, and Psychiatry},
+  volume={40},
+  number={4},
+  pages={664--686},
+  year={2016},
+  publisher={Springer}
+}
+@misc{stroud_2016, 
+  title={Opioid Crisis: Bias In Treating Pregnant Addicts}, 
+  author={Stroud, Hernandez D.},
+  journal={Time},
+  publisher={Time},  
+  year={2016}, 
+  month={Jul},
+  url={http://time.com/4385588/crack-babies-heroin-crisis/}
+ }
+ @misc{samhsa_2013, 
+   title={About Us}, 
+   journal={Stages of Community Readiness | SAMHSA}, 
+   year={2013}, 
+   month={May},
+   url={https://www.samhsa.gov/about-us}
+}
+ @misc{samhsa_camp, 
+   title={Background Information on Opioid Use and Treatment for Pregnant and Parenting Women and Families}, 
+   journal={Stages of Community Readiness | SAMHSA},  
+   url={https://www.samhsa.gov/sites/default/files/programs_campaigns/IECMHC/opioids-background-information.pdf}
+}
+@misc{services_2018, 
+  title={HHS Awards Over $1 Billion to Combat the Opioid Crisis},  
+  author={U.S. Department of Health and Human Services}, 
+  journal={HHS.gov},
+  publisher={US Department of Health and Human Services}, 
+  year={2018}, 
+  month={Oct},
+  url={https://www.hhs.gov/about/news/2018/09/19/hhs-awards-over-1-billion-combat-opioid-crisis.html}
+}
+@misc{nelissen_2016, 
+  title={From scientific study to public opinion - is John Oliver right?}, 
+  author={Nelissen , Elisa}, 
+  journal={10th Edition}, 
+  publisher={Elsevier Connect}, 
+  year={2016}, 
+  month={May}
+  url={https://www.elsevier.com/connect/from-scientific-study-to-public-opinion-is-john-oliver-right}
+}
+@misc{eggener_1998,
+  title={The Power of the Pen: Medical Journalism and Public Awareness}, 
+  author={Eggener, Scott},
+  journal={JAMA}, 
+  publisher={American Medical Association}, 
+  year={1998}, 
+  month={May},
+  url={https://jamanetwork.com/journals/jama/article-abstract/1834318} 
+}
+@article{miranda2009improving,
+  title={Improving health communication Supporting the practice of health communication},
+  author={Miranda, Giovanna F and Vercellesi, Luisa and Pozzi, Edoardo and Bruno, Flavia},
+  journal={Health Information \& Libraries Journal},
+  volume={26},
+  number={1},
+  pages={39--46},
+  year={2009},
+  publisher={Wiley Online Library}
+  doi={10.1111/j.1471-1842.2008.00783.x},
+  url={https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1471-1842.2008.00783.x}
+}
+
+@misc{dea, 
+  title={National Prescription Drug Take Back Day},
+  author={DEA},
+  journal={Department of Justice : US Drug Enforcement Administration}, 
+  url={https://www.deadiversion.usdoj.gov/drug_disposal/takeback/}
+}
+@misc{dea2, 
+  title={DEA National RXTake Back Day}, 
+  author={US Drug Enforcement Administration},
+  journal={Take Back Day}, 
+  url={https://takebackday.dea.gov/}
+}
+@misc{boeckel_2017, 
+  title={Why you need to get rid of those expired, unused prescription drugs}, 
+  author={Boeckel, Teresa},
+  journal={The York Daily Record}, 
+  publisher={York Daily Record}, 
+  year={2017}, 
+  month={Oct},
+  url={https://www.ydr.com/story/news/2017/10/26/why-you-need-get-rid-those-expired-unused-prescription-drugs-york/801556001/}
+}
+
+@article{straus2013preventing,
+  title={Preventing deaths from rising opioid overdose in the US--the promise of naloxone antidote in community-based naloxone take-home programs},
+  author={Straus, Michele M and Ghitza, Udi E and Tai, Betty},
+  journal={Substance abuse and rehabilitation},
+  volume={4},
+  pages={65},
+  year={2013},
+  publisher={Dove Press}
+}
+
+@misc{tilly2017opioid,
+  title={The Opioid Public Health Emergency and Older Adults},
+  author={Tilly, Jane and Skowronski, Shannon and Ruiz, Sarah},
+  year={2017},
+  publisher={Administration on Community Living}
+}
+@misc{cdc, 
+  author={CDC},
+  title={Addressing Prescription Drug Abuse in the United States},  
+  journal={Centers for Disease Control and Prevention (CDC).}, 
+  url={https://www.cdc.gov/drugoverdose/pdf/hhs_prescription_drug_abuse_report_09.2013.pdf}
+}
+@article{lucas2017rationale,
+  title={Rationale for cannabis-based interventions in the opioid overdose crisis},
+  author={Lucas, Philippe},
+  journal={Harm reduction journal},
+  volume={14},
+  number={1},
+  pages={58},
+  year={2017},
+  publisher={BioMed Central}
+}
+
+@article{kerensky2017opioid,
+  title={Opioid overdose prevention and naloxone rescue kits: what we know and what we don’t know},
+  author={Kerensky, Todd and Walley, Alexander Y},
+  journal={Addiction science \& clinical practice},
+  volume={12},
+  number={1},
+  pages={4},
+  year={2017},
+  publisher={BioMed Central}
+}
+@misc{eyer_2016, 
+  title={Heroin in York County: Chronicling an epidemic},  
+  author={Eyer, Matt}, 
+  journal={The York Daily Record}, 
+  publisher={York Daily Record}, 
+  year={2016}, 
+  month={Dec},
+  url={https://www.ydr.com/story/news/2016/02/24/heroin-epidemic-york-county-pennsylvania-news-stories/80862382/}
+}
+@misc{zuger_2007, 
+  title={Doctors Who Wield the Pen to Heal the Profession},  
+  journal={The New York Times}, 
+  publisher={The New York Times}, 
+  author={Zuger, Abigail}, 
+  year={2007}, 
+  month={May},
+  url={https://www.nytimes.com/2007/05/15/health/15book.html?mtrref=www.google.com&gwh=BAB23972BAF903CD317F8E64ABADB73F&gwt=pay}
+}
+
+
+
+@article{wermeling2010opioid,
+  title={Opioid harm reduction strategies: focus on expanded access to intranasal naloxone},
+  author={Wermeling, Daniel P},
+  journal={Pharmacotherapy: The Journal of Human Pharmacology and Drug Therapy},
+  volume={30},
+  number={7},
+  pages={627--631},
+  year={2010},
+  publisher={Wiley Online Library}
+
+
+
+
+
+
+
+
+
+
+@article{wickramatilake2017states,
+  title={How states are tackling the opioid crisis},
+  author={Wickramatilake, Shalini and Zur, Julia and Mulvaney-Day, Norah and Klimo, Melinda Campopiano von and Selmi, Elizabeth and Harwood, Henrick},
+  journal={Public Health Reports},
+  volume={132},
+  number={2},
+  pages={171--179},
+  year={2017},
+  publisher={SAGE Publications Sage CA: Los Angeles, CA},
+  doi={https://doi.org/10.1177/0033354916688206},
+  url={https://journals.sagepub.com/doi/10.1177/0033354916688206}
+}
+
+@misc{cdcstats, 
+  title={National Center for Health Statistics}, 
+  journal={Centers for Disease Control and Prevention}, 
+  publisher={Centers for Disease Control and Prevention}, 
+  year={2017}, 
+  month={Dec},
+  url={https://www.cdc.gov/nchs/products/databriefs/db294.htm}, 
+}
+@misc{fda_timeline, title={Information by Drug Class - Timeline of Selected FDA Activities and Significant Events Addressing Opioid Misuse and Abuse}, url=https://www.fda.gov/Drugs/DrugSafety/InformationbyDrugClass/ucm338566.htm}, journal={U S Food and Drug Administration Home Page}, publisher={Center for Drug Evaluation and Research}, author={Center for Drug Evaluation and Research}}
+@misc{halt_2009, title={2009 - FDA Acts to Halt Marketing of Unapproved Codeine Sulfate Tablets}, url={http://wayback.archive-it.org/7993/20170112130249/http://www.fda.gov/NewsEvents/Newsroom/PressAnnouncements/2009/ucm186418.htm}, journal={Center for Food Safety and Applied Nutrition}, publisher={Center for Food Safety and Applied Nutrition}, year={2009}, month={Oct}}
+@misc{fda_warning, title={Warning Letters and Notice of Violation Letters to Pharmaceutical Companies}, url=http://wayback.archive-it.org/7993/20170112065652/http:/www.fda.gov/downloads/Drugs/GuidanceComplianceRegulatoryInformation/EnforcementActivitiesbyFDA/WarningLettersandNoticeofViolationLetterstoPharmaceuticalCompanies/UCM168946.pdf, journal={Center for Food Safety and Applied Nutrition}, publisher={Center for Food Safety and Applied Nutrition}, year={2009}, month={Oct}}
+
+@techreport{pennebaker2015development,
+  title={The development and psychometric properties of LIWC2015},
+  author={Pennebaker, James W and Boyd, Ryan L and Jordan, Kayla and Blackburn, Kate},
+  year={2015}
+}
+
+@article{xu2018sentiment,
+  title={Sentiment, richness, authority, and relevance model of information sharing during social Crises—the case of\# MH370 tweets},
+  author={Xu, Weiai Wayne and Zhang, Congcong},
+  journal={Computers in Human Behavior},
+  volume={89},
+  pages={199--206},
+  year={2018},
+  publisher={Elsevier}
+}
+
